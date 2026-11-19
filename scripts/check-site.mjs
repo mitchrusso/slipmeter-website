@@ -8,6 +8,8 @@ const required = [
   'name="first_name"',
   'name="last_name"',
   'name="email"',
+  'id="network"',
+  '>SlipMeter Network<',
   '/downloads/SlipMeter-0.1.97-arm64.dmg'
 ];
 
@@ -23,6 +25,9 @@ for (const value of forbiddenNavigation) {
 for (const path of [
   'assets/slipmeter-stopwatch-icon.svg',
   'assets/slipmeter-app-preview.png',
+  'assets/slipmeter-full-app.png',
+  'assets/slipmeter-mini-view.png',
+  'assets/slipmeter-micro-view.png',
   'assets/slipmeter-mini-timer.svg',
   'assets/slipmeter-pause-timer.png',
   'downloads/SlipMeter-0.1.97-arm64.dmg'

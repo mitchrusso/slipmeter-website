@@ -19,7 +19,7 @@
   <meta name="twitter:description" content="The unobtrusive Mac timer that preserves the context behind every minute." />
   <meta name="twitter:image" content="https://slipmeter.app/assets/slipmeter-full-app.png" />
   <link rel="icon" type="image/svg+xml" href="/assets/slipmeter-stopwatch-icon.svg" />
-  <link rel="stylesheet" href="/styles.css?v=3" />
+  <link rel="stylesheet" href="/styles.css?v=4" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -44,6 +44,7 @@
           {"@type": "Question", "name": "Does SlipMeter work without another platform?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. SlipMeter is a standalone Mac app with local clients, activities, slips, reports, and exports."}},
           {"@type": "Question", "name": "What happens if I close the app while a timer is running?", "acceptedAnswer": {"@type": "Answer", "text": "SlipMeter warns you before closing, stops the elapsed time, and saves the current slip so work is not silently lost."}},
           {"@type": "Question", "name": "Can I export my records?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. SlipMeter records can be exported for reporting, analysis, invoicing preparation, or consolidation with other records."}},
+          {"@type": "Question", "name": "How can multiple SlipMeter users combine their data?", "acceptedAnswer": {"@type": "Answer", "text": "Connected organization members can sync slips to a central ClickCoach repository. Standalone users can export standardized full-slip CSV files for consolidation in spreadsheets, databases, or analytics tools."}},
           {"@type": "Question", "name": "Is SlipMeter safe to install on a Mac?", "acceptedAnswer": {"@type": "Answer", "text": "The SlipMeter installer is signed and notarized by Apple."}}
         ]
       }
@@ -64,6 +65,7 @@
         <a href="#product">Product</a>
         <a href="#workflow">How it works</a>
         <a href="#features">Features</a>
+        <a href="#network">SlipMeter Network</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQs</a>
       </nav>
@@ -140,26 +142,32 @@
           </ul>
         </div>
         <div class="feature-visual">
-          <img src="/assets/slipmeter-mini-timer.svg" alt="SlipMeter compact timer with client and activity controls" width="376" height="190" loading="lazy" />
-          <img class="micro-timer" src="/assets/slipmeter-pause-timer.png" alt="SlipMeter micro timer with elapsed time and pause control" width="300" height="76" loading="lazy" />
+          <img src="/assets/slipmeter-mini-view.png" alt="SlipMeter mini view with client, activity, elapsed time, and timer controls" width="404" height="233" loading="lazy" />
+          <img class="micro-timer" src="/assets/slipmeter-micro-view.png" alt="SlipMeter micro view showing elapsed time, pause, and expand controls" width="341" height="94" loading="lazy" />
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="shell record-layout">
-        <div class="record-intro">
-          <p class="eyebrow">More than elapsed time</p>
-          <h2>A complete slip answers more than “how long?”</h2>
-          <p>Each record can carry the information that makes the time understandable later, whether you are reviewing your own week or combining records across a team.</p>
+    <section class="section feature-catalog-section" aria-labelledby="feature-catalog-title">
+      <div class="shell">
+        <div class="section-heading feature-catalog-heading">
+          <p class="eyebrow">The complete feature set</p>
+          <h2 id="feature-catalog-title">Everything needed to turn working time into a usable record.</h2>
+          <p>SlipMeter does more than run a clock. It preserves who did the work, what they did, why it mattered, how it should be classified, and where the record needs to go next.</p>
         </div>
-        <div class="record-grid">
-          <div><strong>Comments</strong><span>Keep the reason, context, or work product with the slip.</span></div>
-          <div><strong>Billing status</strong><span>Separate billable, non-billable, included, and internal work.</span></div>
-          <div><strong>Outcomes</strong><span>Record progress, commitments, energy, and follow-up needs.</span></div>
-          <div><strong>Team identity</strong><span>Preserve user, workspace, and device context for consolidation.</span></div>
-          <div><strong>Rounding</strong><span>Apply consistent time increments that match your operating rules.</span></div>
-          <div><strong>Export-ready data</strong><span>Move detailed records into CSV, PDF, spreadsheets, and reporting workflows.</span></div>
+        <div class="feature-catalog-grid">
+          <article><small>Capture</small><h3>Searchable clients and activities</h3><p>Find an existing client, scroll the full list, or create local clients and activities as you work.</p><strong>Benefit: faster entry with fewer naming errors.</strong></article>
+          <article><small>Capture</small><h3>Full, mini, and micro views</h3><p>Move from complete slip detail to a compact client timer or narrow elapsed-time bar.</p><strong>Benefit: keep the timer visible without surrendering screen space.</strong></article>
+          <article><small>Control</small><h3>Start, pause, resume, stop, and edit</h3><p>Control the live timer and correct elapsed time, start time, end time, client, or activity later.</p><strong>Benefit: accurate records even when real work interrupts the clock.</strong></article>
+          <article><small>Protection</small><h3>Save-and-reset safeguards</h3><p>Changing clients prompts before saving the current slip; closing with captured time offers to stop and save it.</p><strong>Benefit: work is not silently lost or assigned to the wrong client.</strong></article>
+          <article><small>Context</small><h3>Comments on every slip</h3><p>Attach the purpose, deliverable, conversation, or work-product note directly to the time record.</p><strong>Benefit: understand the entry later without reconstructing the day.</strong></article>
+          <article><small>Classification</small><h3>Billing and work categories</h3><p>Mark work billable or non-billable and classify it as client work, internal/admin, or included at no charge.</p><strong>Benefit: separate revenue work from overhead and included service.</strong></article>
+          <article><small>Consistency</small><h3>Configurable rounding</h3><p>Choose a default time increment and apply it consistently when completed slips are saved.</p><strong>Benefit: produce consistent time data for reporting and invoicing.</strong></article>
+          <article><small>Coaching</small><h3>Outcomes and follow-up signals</h3><p>Record outcomes, client commitments, progress, energy, and whether follow-up is needed.</p><strong>Benefit: connect time spent with movement, commitments, and next actions.</strong></article>
+          <article><small>Review</small><h3>Saved-slip states and editing</h3><p>See active, paused, saved, pending, failed, and synced states, then reopen a slip to make corrections.</p><strong>Benefit: know what is complete and what still needs attention.</strong></article>
+          <article><small>Resilience</small><h3>Offline queue and retry</h3><p>Keep local slips intact when a connection is unavailable and retry pending or failed sync work later.</p><strong>Benefit: continue tracking without depending on a perfect connection.</strong></article>
+          <article><small>Quality</small><h3>Readiness and duplicate warnings</h3><p>Flag missing required fields and identify potential duplicate entries based on client, activity, and time.</p><strong>Benefit: cleaner team data before it reaches downstream reports.</strong></article>
+          <article><small>Reporting</small><h3>Summary, detail, PDF, and CSV output</h3><p>Filter by client, classification, or billing; print reports; export filtered results; or export every slip field.</p><strong>Benefit: move from personal tracking to analysis, productivity review, and invoicing preparation.</strong></article>
         </div>
       </div>
     </section>
@@ -178,6 +186,29 @@
           <article><strong>Status</strong><span>Separate saved, pending, billable, and internal records.</span></article>
           <article><strong>Export</strong><span>Carry comments and classifications into downstream tools.</span></article>
         </div>
+      </div>
+    </section>
+
+    <section class="section network-section" id="network" aria-labelledby="network-title">
+      <div class="shell network-layout">
+        <div class="network-copy">
+          <p class="eyebrow">SlipMeter Network</p>
+          <h2 id="network-title">Independent timers. One operational picture.</h2>
+          <p>SlipMeter records the member, organization, device, client, activity, classifications, comments, outcomes, and sync state with each slip. That common structure lets many people capture time independently while the organization combines their records for unified reporting.</p>
+          <div class="network-paths">
+            <article><h3>Connected network</h3><p>Invite each SlipMeter user into the organization. Their app receives the shared client and activity structure, preserves their individual identity, and queues completed slips to the organization’s central ClickCoach repository.</p></article>
+            <article><h3>Export network</h3><p>Standalone users can export all slip data with the same standardized columns. Combine those files in a spreadsheet, database, or analytics tool when direct sync is not required.</p></article>
+          </div>
+          <a class="button button-primary" href="mailto:support@clickcoach.io?subject=SlipMeter%20Network">Discuss a SlipMeter Network</a>
+        </div>
+        <div class="network-flow" aria-label="SlipMeter Network reporting flow">
+          <div class="network-node network-people"><span>01</span><strong>Each person tracks locally</strong><p>Flexible client work, calls, preparation, follow-up, and administration.</p></div>
+          <div class="network-node network-records"><span>02</span><strong>Every slip carries identity</strong><p>Member, workspace, device, client, activity, billing, comments, and outcomes.</p></div>
+          <div class="network-node network-reports"><span>03</span><strong>The organization rolls it up</strong><p>Report by member, client, activity, billing status, classification, outcome, or date.</p></div>
+        </div>
+      </div>
+      <div class="shell network-result" aria-label="Unified reporting benefits">
+        <span>Team utilization</span><span>Client profitability inputs</span><span>Workload visibility</span><span>Productivity reporting</span><span>Invoice preparation</span><span>Follow-up accountability</span>
       </div>
     </section>
 
@@ -266,6 +297,7 @@
           <details><summary>Can I change clients while a timer is active?</summary><p>Yes. SlipMeter asks for confirmation, saves the current slip, and resets the timer for the new client.</p></details>
           <details><summary>Can I edit time or review pending slips?</summary><p>Yes. You can edit elapsed time, identify running and pending slips, and complete or save records from the app.</p></details>
           <details><summary>Can I export my records?</summary><p>Yes. Export detailed records, including comments and classifications, for reporting, analysis, invoicing preparation, or consolidation.</p></details>
+          <details><summary>How can multiple SlipMeter users combine their data?</summary><p>Connected organization members can sync slips to a central ClickCoach repository with member, workspace, and device identity preserved. Standalone users can export standardized full-slip CSV files and combine them in a spreadsheet, database, or analytics platform.</p></details>
           <details><summary>Is the app safe to install?</summary><p>Yes. The current macOS installer is signed with a Developer ID and notarized by Apple.</p></details>
         </div>
       </div>
@@ -285,7 +317,7 @@
   <footer class="site-footer">
     <div class="shell footer-top">
       <a class="brand brand-footer" href="#top" aria-label="SlipMeter home"><img src="/assets/slipmeter-stopwatch-icon.svg" alt="" width="34" height="34" /><span>SlipMeter</span></a>
-      <nav aria-label="Footer navigation"><a href="#product">Product</a><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">FAQs</a><a href="mailto:support@clickcoach.io?subject=SlipMeter%20support">Support</a></nav>
+      <nav aria-label="Footer navigation"><a href="#product">Product</a><a href="#features">Features</a><a href="#network">SlipMeter Network</a><a href="#pricing">Pricing</a><a href="#faq">FAQs</a><a href="mailto:support@clickcoach.io?subject=SlipMeter%20support">Support</a></nav>
     </div>
     <div class="shell footer-bottom"><span>&copy; 2026 Mindful Guidance MR, LLC. All rights reserved.</span><span><a href="https://clickcoach.io/privacy/">Privacy</a><a href="https://clickcoach.io/terms/">Terms</a></span></div>
   </footer>
