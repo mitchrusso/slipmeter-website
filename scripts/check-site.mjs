@@ -36,7 +36,8 @@ for (const path of [
   'assets/slipmeter-micro-view.png',
   'assets/slipmeter-mini-timer.svg',
   'assets/slipmeter-pause-timer.png',
-  'downloads/SlipMeter-0.1.97-arm64.dmg'
+  'downloads/SlipMeter-0.1.97-arm64.dmg',
+  'downloads/latest.json'
 ]) {
   if (!fs.existsSync(new URL(`../${path}`, import.meta.url))) throw new Error(`Missing required asset: ${path}`);
 }
