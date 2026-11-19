@@ -10,6 +10,8 @@ const required = [
   'name="email"',
   'id="network"',
   '>SlipMeter Network<',
+  '$19.97 per month',
+  'https://buy.stripe.com/6oUeVdgZ87XW57I1j74gg00',
   '/downloads/SlipMeter-0.1.97-arm64.dmg'
 ];
 
@@ -20,6 +22,10 @@ for (const value of required) {
 const forbiddenNavigation = ['>ClickCoach<', 'Open ClickCoach', 'ClickCoach subscribers'];
 for (const value of forbiddenNavigation) {
   if (html.includes(value)) throw new Error(`Standalone site contains forbidden cross-promotion: ${value}`);
+}
+
+for (const oldPrice of ['$29.99', '$29.95', 'per year after trial', 'Standalone annual plan']) {
+  if (html.includes(oldPrice)) throw new Error(`Standalone site still contains retired pricing: ${oldPrice}`);
 }
 
 for (const path of [

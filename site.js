@@ -197,3 +197,22 @@
     }
   });
 })();
+
+(function () {
+  const checkoutComplete = new URLSearchParams(window.location.search).get('checkout') === 'success';
+  if (!checkoutComplete) return;
+
+  const ready = document.getElementById('download-ready');
+  const cardHeading = document.querySelector('.download-card-head span');
+  const couponField = document.querySelector('.coupon-field');
+  const emailEmbed = document.querySelector('.tinyemail-embed');
+  const fallbackForm = document.getElementById('download-form');
+  const existingUser = document.querySelector('.existing-user');
+
+  if (ready) ready.hidden = false;
+  if (couponField) couponField.hidden = true;
+  if (emailEmbed) emailEmbed.hidden = true;
+  if (fallbackForm) fallbackForm.hidden = true;
+  if (existingUser) existingUser.hidden = true;
+  if (cardHeading) cardHeading.textContent = 'Subscription confirmed. Your download is ready.';
+})();
