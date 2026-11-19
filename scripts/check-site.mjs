@@ -16,7 +16,7 @@ const required = [
   'Record work as it happens',
   'Turn records into action',
   'SlipMeter Network · Early access',
-  'href="https://slipmeter-network.mitch-russo.workers.dev/">Open SlipMeter Network',
+  'href="https://network.slipmeter.app/">Open SlipMeter Network',
   'id="network-map"',
   'Shared slip data',
   'Coach 06',
