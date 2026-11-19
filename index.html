@@ -19,7 +19,7 @@
   <meta name="twitter:description" content="The unobtrusive Mac timer that preserves the context behind every minute." />
   <meta name="twitter:image" content="https://slipmeter.app/assets/slipmeter-full-app.png" />
   <link rel="icon" type="image/svg+xml" href="/assets/slipmeter-stopwatch-icon.svg" />
-  <link rel="stylesheet" href="/styles.css?v=4" />
+  <link rel="stylesheet" href="/styles.css?v=7" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -44,7 +44,7 @@
           {"@type": "Question", "name": "Does SlipMeter work without another platform?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. SlipMeter is a standalone Mac app with local clients, activities, slips, reports, and exports."}},
           {"@type": "Question", "name": "What happens if I close the app while a timer is running?", "acceptedAnswer": {"@type": "Answer", "text": "SlipMeter warns you before closing, stops the elapsed time, and saves the current slip so work is not silently lost."}},
           {"@type": "Question", "name": "Can I export my records?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. SlipMeter records can be exported for reporting, analysis, invoicing preparation, or consolidation with other records."}},
-          {"@type": "Question", "name": "How can multiple SlipMeter users combine their data?", "acceptedAnswer": {"@type": "Answer", "text": "Connected organization members can sync slips to a central ClickCoach repository. Standalone users can export standardized full-slip CSV files for consolidation in spreadsheets, databases, or analytics tools."}},
+          {"@type": "Question", "name": "How does SlipMeter Network work?", "acceptedAnswer": {"@type": "Answer", "text": "SlipMeter Network is an optional cloud service now available in early access. Its repository, device controls, member invitations, and unified reporting dashboard are live. Automatic synchronization from the installed Mac app is the next connector. The first year is included with an active SlipMeter license, then renews for $9.97 per license annually."}},
           {"@type": "Question", "name": "Is SlipMeter safe to install on a Mac?", "acceptedAnswer": {"@type": "Answer", "text": "The SlipMeter installer is signed and notarized by Apple."}}
         ]
       }
@@ -153,21 +153,65 @@
         <div class="section-heading feature-catalog-heading">
           <p class="eyebrow">The complete feature set</p>
           <h2 id="feature-catalog-title">Everything needed to turn working time into a usable record.</h2>
-          <p>SlipMeter does more than run a clock. It preserves who did the work, what they did, why it mattered, how it should be classified, and where the record needs to go next.</p>
+          <p>Capture the work once, while it is fresh. SlipMeter carries that record from the timer to billing, productivity review, and personal accountability without forcing you to reconstruct the day.</p>
         </div>
-        <div class="feature-catalog-grid">
-          <article><small>Capture</small><h3>Searchable clients and activities</h3><p>Find an existing client, scroll the full list, or create local clients and activities as you work.</p><strong>Benefit: faster entry with fewer naming errors.</strong></article>
-          <article><small>Capture</small><h3>Full, mini, and micro views</h3><p>Move from complete slip detail to a compact client timer or narrow elapsed-time bar.</p><strong>Benefit: keep the timer visible without surrendering screen space.</strong></article>
-          <article><small>Control</small><h3>Start, pause, resume, stop, and edit</h3><p>Control the live timer and correct elapsed time, start time, end time, client, or activity later.</p><strong>Benefit: accurate records even when real work interrupts the clock.</strong></article>
-          <article><small>Protection</small><h3>Save-and-reset safeguards</h3><p>Changing clients prompts before saving the current slip; closing with captured time offers to stop and save it.</p><strong>Benefit: work is not silently lost or assigned to the wrong client.</strong></article>
-          <article><small>Context</small><h3>Comments on every slip</h3><p>Attach the purpose, deliverable, conversation, or work-product note directly to the time record.</p><strong>Benefit: understand the entry later without reconstructing the day.</strong></article>
-          <article><small>Classification</small><h3>Billing and work categories</h3><p>Mark work billable or non-billable and classify it as client work, internal/admin, or included at no charge.</p><strong>Benefit: separate revenue work from overhead and included service.</strong></article>
-          <article><small>Consistency</small><h3>Configurable rounding</h3><p>Choose a default time increment and apply it consistently when completed slips are saved.</p><strong>Benefit: produce consistent time data for reporting and invoicing.</strong></article>
-          <article><small>Coaching</small><h3>Outcomes and follow-up signals</h3><p>Record outcomes, client commitments, progress, energy, and whether follow-up is needed.</p><strong>Benefit: connect time spent with movement, commitments, and next actions.</strong></article>
-          <article><small>Review</small><h3>Saved-slip states and editing</h3><p>See active, paused, saved, pending, failed, and synced states, then reopen a slip to make corrections.</p><strong>Benefit: know what is complete and what still needs attention.</strong></article>
-          <article><small>Resilience</small><h3>Offline queue and retry</h3><p>Keep local slips intact when a connection is unavailable and retry pending or failed sync work later.</p><strong>Benefit: continue tracking without depending on a perfect connection.</strong></article>
-          <article><small>Quality</small><h3>Readiness and duplicate warnings</h3><p>Flag missing required fields and identify potential duplicate entries based on client, activity, and time.</p><strong>Benefit: cleaner team data before it reaches downstream reports.</strong></article>
-          <article><small>Reporting</small><h3>Summary, detail, PDF, and CSV output</h3><p>Filter by client, classification, or billing; print reports; export filtered results; or export every slip field.</p><strong>Benefit: move from personal tracking to analysis, productivity review, and invoicing preparation.</strong></article>
+        <div class="value-path" aria-label="Path from captured time to billing and accountability">
+          <article class="value-path-timer">
+            <span class="value-path-label">Work is happening</span>
+            <img src="/assets/slipmeter-micro-view.png" alt="SlipMeter micro timer capturing elapsed work time" width="341" height="94" loading="lazy" />
+            <strong>Keep the timer beside the work</strong>
+            <p>One click captures time before the next call, message, or task takes over.</p>
+          </article>
+          <div class="value-path-arrow" aria-hidden="true"><span></span></div>
+          <article class="value-path-record">
+            <span class="value-path-label">A complete slip is saved</span>
+            <div class="record-preview" aria-label="Example structured work record">
+              <div><small>Client</small><strong>Jane Smith</strong></div>
+              <div><small>Activity</small><strong>Client session</strong></div>
+              <div><small>Time</small><strong>01:12:36</strong></div>
+              <div><small>Class</small><strong>Billable</strong></div>
+              <p>Session completed. Proposal and next steps reviewed.</p>
+            </div>
+            <strong>No end-of-day reconstruction</strong>
+            <p>Client, activity, time, classification, and context stay together.</p>
+          </article>
+          <div class="value-path-arrow" aria-hidden="true"><span></span></div>
+          <div class="value-path-outcomes">
+            <article>
+              <span class="outcome-mark outcome-bill">$</span>
+              <div><small>Ready to bill</small><strong>Documented work becomes invoice input.</strong></div>
+            </article>
+            <article>
+              <span class="outcome-mark outcome-review">✓</span>
+              <div><small>Ready to review</small><strong>See effort, follow-through, and accountability.</strong></div>
+            </article>
+          </div>
+        </div>
+        <div class="feature-pathway">
+          <article class="feature-path-step feature-path-capture">
+            <div class="feature-step-head"><span>01</span><div><small>Capture</small><h3>Record work as it happens</h3></div></div>
+            <p>Start quickly and keep the timer close without crowding the desktop.</p>
+            <ul><li>Searchable clients and activities</li><li>Full, mini, and micro views</li><li>Start, pause, resume, stop, and edit</li></ul>
+            <strong>Save time: fewer steps between doing the work and recording it.</strong>
+          </article>
+          <article class="feature-path-step feature-path-protect">
+            <div class="feature-step-head"><span>02</span><div><small>Protect</small><h3>Prevent missing or misplaced time</h3></div></div>
+            <p>SlipMeter watches the handoffs where time records usually break down.</p>
+            <ul><li>Save-and-reset client safeguards</li><li>Active, paused, pending, and saved states</li><li>Offline queue and duplicate warnings</li></ul>
+            <strong>Save time: correct exceptions instead of rebuilding records.</strong>
+          </article>
+          <article class="feature-path-step feature-path-enrich">
+            <div class="feature-step-head"><span>03</span><div><small>Enrich</small><h3>Add the context that makes time useful</h3></div></div>
+            <p>Turn elapsed minutes into a record another person can understand and use.</p>
+            <ul><li>Comments on every slip</li><li>Billing status and work classifications</li><li>Rounding, outcomes, commitments, and follow-up</li></ul>
+            <strong>Save time: answer “what was this for?” while the answer is fresh.</strong>
+          </article>
+          <article class="feature-path-step feature-path-use">
+            <div class="feature-step-head"><span>04</span><div><small>Use</small><h3>Turn records into action</h3></div></div>
+            <p>Move clean data directly into the decisions and systems that need it.</p>
+            <ul><li>Client summaries and detailed slips</li><li>Billing, activity, member, and date filters</li><li>PDF, CSV, and complete-data exports</li></ul>
+            <strong>Save time: prepare billing and accountability reports without re-entry.</strong>
+          </article>
         </div>
       </div>
     </section>
@@ -192,23 +236,71 @@
     <section class="section network-section" id="network" aria-labelledby="network-title">
       <div class="shell network-layout">
         <div class="network-copy">
-          <p class="eyebrow">SlipMeter Network</p>
-          <h2 id="network-title">Independent timers. One operational picture.</h2>
-          <p>SlipMeter records the member, organization, device, client, activity, classifications, comments, outcomes, and sync state with each slip. That common structure lets many people capture time independently while the organization combines their records for unified reporting.</p>
+          <p class="eyebrow">SlipMeter Network · Early access</p>
+          <h2 id="network-title">Your slips, synchronized wherever work happens.</h2>
+          <p>SlipMeter Network is an optional SlipMeter cloud service—not a ClickCoach subscription. The secure repository, organization dashboard, member invitations, device controls, and unified reports are live in early access. Automatic synchronization from the installed Mac app is the next connector.</p>
           <div class="network-paths">
-            <article><h3>Connected network</h3><p>Invite each SlipMeter user into the organization. Their app receives the shared client and activity structure, preserves their individual identity, and queues completed slips to the organization’s central ClickCoach repository.</p></article>
-            <article><h3>Export network</h3><p>Standalone users can export all slip data with the same standardized columns. Combine those files in a spreadsheet, database, or analytics tool when direct sync is not required.</p></article>
+            <article><h3>Local first</h3><p>Every slip saves on the computer immediately. An internet interruption never prevents time capture.</p></article>
+            <article><h3>Cloud synchronized</h3><p>Completed slips queue automatically, retry when needed, and keep the member and device identity attached.</p></article>
           </div>
-          <a class="button button-primary" href="mailto:support@clickcoach.io?subject=SlipMeter%20Network">Discuss a SlipMeter Network</a>
+          <a class="button button-primary" href="https://slipmeter-network.mitch-russo.workers.dev/">Open SlipMeter Network</a>
         </div>
-        <div class="network-flow" aria-label="SlipMeter Network reporting flow">
-          <div class="network-node network-people"><span>01</span><strong>Each person tracks locally</strong><p>Flexible client work, calls, preparation, follow-up, and administration.</p></div>
-          <div class="network-node network-records"><span>02</span><strong>Every slip carries identity</strong><p>Member, workspace, device, client, activity, billing, comments, and outcomes.</p></div>
-          <div class="network-node network-reports"><span>03</span><strong>The organization rolls it up</strong><p>Report by member, client, activity, billing status, classification, outcome, or date.</p></div>
+        <div class="network-map" id="network-map" role="img" aria-label="Six independent SlipMeter users at computers connected through a decentralized network to one shared slip database">
+          <span class="network-link network-link-1" aria-hidden="true"></span>
+          <span class="network-link network-link-2" aria-hidden="true"></span>
+          <span class="network-link network-link-3" aria-hidden="true"></span>
+          <span class="network-link network-link-4" aria-hidden="true"></span>
+          <span class="network-link network-link-5" aria-hidden="true"></span>
+          <span class="network-link network-link-6" aria-hidden="true"></span>
+          <article class="network-workstation workstation-1"><span class="person person-blue"></span><span class="computer"><i></i></span><small>Coach 01</small></article>
+          <article class="network-workstation workstation-2"><span class="person person-mint"></span><span class="computer"><i></i></span><small>Coach 02</small></article>
+          <article class="network-workstation workstation-3"><span class="person person-coral"></span><span class="computer"><i></i></span><small>Coach 03</small></article>
+          <article class="network-workstation workstation-4"><span class="person person-gold"></span><span class="computer"><i></i></span><small>Coach 04</small></article>
+          <article class="network-workstation workstation-5"><span class="person person-violet"></span><span class="computer"><i></i></span><small>Coach 05</small></article>
+          <article class="network-workstation workstation-6"><span class="person person-cyan"></span><span class="computer"><i></i></span><small>Coach 06</small></article>
+          <div class="network-database">
+            <span class="database-stack" aria-hidden="true"><i></i><i></i><i></i></span>
+            <strong>Shared slip data</strong>
+            <small>One report-ready repository</small>
+          </div>
+          <span class="network-status">Independent capture · Unified reporting</span>
         </div>
       </div>
       <div class="shell network-result" aria-label="Unified reporting benefits">
         <span>Team utilization</span><span>Client profitability inputs</span><span>Workload visibility</span><span>Productivity reporting</span><span>Invoice preparation</span><span>Follow-up accountability</span>
+      </div>
+      <div class="shell network-details" id="network-details">
+        <article class="network-plan">
+          <p class="network-plan-kicker">Included with every active SlipMeter license</p>
+          <h3>SlipMeter Network is free for the first year.</h3>
+          <p class="network-renewal">Then <strong>$9.97 per year, per license</strong></p>
+          <p>One license belongs to one named person and covers up to two computers, plus SlipMeter Mobile when it becomes available. Organizations pay for active licensed members—not devices, stored slips, or report volume.</p>
+          <small>Your included year begins when Network is activated for your license. Paid renewal is not enabled during early access; renewal terms will be disclosed before billing begins, with advance reminders before payment.</small>
+        </article>
+        <div class="network-boundaries">
+          <article class="network-included">
+            <h3>Included</h3>
+            <ul>
+              <li>Secure synchronization of slips, comments, classifications, and outcomes</li>
+              <li>Two computer activations for one named user</li>
+              <li>Mobile access when SlipMeter Mobile is released</li>
+              <li>Device replacement and recovery from the cloud copy</li>
+              <li>Organization invitations and combined member reporting</li>
+              <li>CSV and PDF reporting exports</li>
+            </ul>
+          </article>
+          <article class="network-not-included">
+            <h3>Not included</h3>
+            <ul>
+              <li>A ClickCoach subscription or any ClickCoach features</li>
+              <li>Sharing one named license among several people</li>
+              <li>General file, document, photo, or attachment storage</li>
+              <li>Google Drive or Dropbox storage; those may become optional export destinations</li>
+              <li>Network service after cancellation of the underlying SlipMeter license</li>
+              <li>Mobile access before the mobile app is released</li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -227,6 +319,7 @@
             <li>Unlimited local clients and activities</li>
             <li>Detailed slips, reports, and exports</li>
             <li>Comments, outcomes, and classifications</li>
+            <li>First year of SlipMeter Network included</li>
             <li>Product updates and email support</li>
           </ul>
           <a class="button button-primary button-full" href="https://buy.stripe.com/6oUeVdgZ87XW57I1j74gg00">Start your 30-day trial</a>
@@ -297,7 +390,8 @@
           <details><summary>Can I change clients while a timer is active?</summary><p>Yes. SlipMeter asks for confirmation, saves the current slip, and resets the timer for the new client.</p></details>
           <details><summary>Can I edit time or review pending slips?</summary><p>Yes. You can edit elapsed time, identify running and pending slips, and complete or save records from the app.</p></details>
           <details><summary>Can I export my records?</summary><p>Yes. Export detailed records, including comments and classifications, for reporting, analysis, invoicing preparation, or consolidation.</p></details>
-          <details><summary>How can multiple SlipMeter users combine their data?</summary><p>Connected organization members can sync slips to a central ClickCoach repository with member, workspace, and device identity preserved. Standalone users can export standardized full-slip CSV files and combine them in a spreadsheet, database, or analytics platform.</p></details>
+          <details><summary>How does SlipMeter Network work?</summary><p>SlipMeter Network is an optional cloud service that does not require ClickCoach. Its secure repository, organization dashboard, device controls, invitations, and unified reports are live in early access. Automatic synchronization from the installed Mac app is the next connector; until that update ships, existing local SlipMeter operation is unchanged.</p></details>
+          <details><summary>What will SlipMeter Network cost?</summary><p>The first year will be included with every active SlipMeter license. After that, Network will renew for $9.97 per year per license. One named-user license covers up to two computers, plus SlipMeter Mobile when it becomes available.</p></details>
           <details><summary>Is the app safe to install?</summary><p>Yes. The current macOS installer is signed with a Developer ID and notarized by Apple.</p></details>
         </div>
       </div>
