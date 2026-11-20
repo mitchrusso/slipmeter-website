@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "test": "node --check site.js && node scripts/check-site.mjs"
+    "test": "node --check site.js && node --check help-chat.js && node scripts/check-site.mjs"
   }
 }

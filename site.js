@@ -18,8 +18,8 @@
   const status = document.querySelector('.coupon-status');
   const endpoint = 'https://new.clickcoach.io/api/slipmeter/coupons/redeem';
 
-  function fieldValue(form, selectors) {
-    const field = form.querySelector(selectors);
+  function fieldValue(form, selector) {
+    const field = form.querySelector(selector);
     return field ? String(field.value || '').trim() : '';
   }
 
@@ -35,12 +35,12 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          code: code,
+          code,
           couponCode: code,
           coupon_code: code,
-          firstName: fieldValue(form, '[name="first_name"], [name="firstName"], [autocomplete="given-name"]'),
-          lastName: fieldValue(form, '[name="last_name"], [name="lastName"], [autocomplete="family-name"]'),
-          email: fieldValue(form, '[name="email"], [type="email"]'),
+          firstName: fieldValue(form, '[name="first_name"]'),
+          lastName: fieldValue(form, '[name="last_name"]'),
+          email: fieldValue(form, '[name="email"]'),
           source: 'slipmeter-standalone-web'
         })
       });
@@ -62,107 +62,19 @@
 })();
 
 (function () {
-  const coupon = document.getElementById('slipmeter-coupon');
-  const embed = document.querySelector('.tinyemail-embed');
-  const fallback = document.getElementById('download-form');
-  const ready = document.getElementById('download-ready');
-  if (!coupon || !embed) return;
-
-  const approvedSubmissions = new WeakSet();
-  const selector = 'form, iframe, [data-reactroot], input, button, textarea, select';
-
-  function showDownload() {
-    if (ready) ready.hidden = false;
-  }
-
-  function normalizeEmbed() {
-    embed.querySelectorAll('button, input[type="submit"], [role="button"]').forEach(function (control) {
-      const text = (control.textContent || control.value || '').trim().toLowerCase();
-      if (text === 'submit') {
-        if ('value' in control) control.value = 'Register and download';
-        control.textContent = 'Register and download';
-        control.setAttribute('aria-label', 'Register and download SlipMeter');
-      }
-    });
-    const placeholders = new Map([
-      ['First name placeholder', 'First name'],
-      ['Last name placeholder', 'Last name'],
-      ['Email address placeholder', 'Email address']
-    ]);
-    embed.querySelectorAll('input[placeholder]').forEach(function (input) {
-      const replacement = placeholders.get(input.getAttribute('placeholder'));
-      if (replacement) input.setAttribute('placeholder', replacement);
-    });
-    embed.querySelectorAll('*').forEach(function (element) {
-      const message = element.childNodes.length === 1 ? element.textContent.trim() : '';
-      if (message === 'Form successfully submitted!') {
-        element.textContent = 'Registration complete. Your SlipMeter download is ready below.';
-        showDownload();
-      }
-    });
-  }
-
-  function syncCoupon() {
-    const form = embed.querySelector('form') || fallback;
-    if (!form) return false;
-    let field = form.querySelector('input[name="coupon_code"]');
-    if (!field) {
-      field = document.createElement('input');
-      field.type = 'hidden';
-      field.name = 'coupon_code';
-      form.appendChild(field);
-    }
-    field.value = coupon.value.trim();
-    return true;
-  }
-
-  function useEmbed() {
-    if (!embed.querySelector(selector)) return false;
-    embed.classList.remove('tinyemail-embed-empty');
-    if (fallback) fallback.hidden = true;
-    normalizeEmbed();
-    syncCoupon();
-    return true;
-  }
-
-  coupon.addEventListener('input', syncCoupon);
-  embed.addEventListener('submit', async function (event) {
-    const form = event.target.closest('form');
-    if (!form || approvedSubmissions.has(form) || !coupon.value.trim()) return;
-    event.preventDefault();
-    event.stopImmediatePropagation();
-    const approved = await window.redeemSlipMeterCoupon(form);
-    if (!approved) return;
-    approvedSubmissions.add(form);
-    form.requestSubmit(event.submitter || undefined);
-  }, true);
-
-  const observer = new MutationObserver(function () { useEmbed(); });
-  observer.observe(embed, { childList: true, subtree: true });
-  syncCoupon();
-  window.setTimeout(function () {
-    if (!useEmbed() && fallback) {
-      fallback.hidden = false;
-      syncCoupon();
-    }
-  }, 2500);
-})();
-
-(function () {
   const form = document.getElementById('download-form');
   if (!form) return;
   const button = form.querySelector('button[type="submit"]');
   const status = document.getElementById('download-status');
   const coupon = document.getElementById('slipmeter-coupon');
   const ready = document.getElementById('download-ready');
+  const secureLink = document.getElementById('secure-download-link');
 
   form.addEventListener('submit', async function (event) {
     event.preventDefault();
-    const hiddenCoupon = form.querySelector('input[name="coupon_code"]');
-    if (hiddenCoupon && coupon) hiddenCoupon.value = coupon.value.trim();
     if (button) {
       button.disabled = true;
-      button.textContent = 'Preparing download...';
+      button.textContent = 'Preparing secure download...';
     }
     if (status) {
       status.textContent = '';
@@ -171,22 +83,29 @@
     try {
       const couponApproved = await window.redeemSlipMeterCoupon(form);
       if (!couponApproved) return;
+      const values = new FormData(form);
       const response = await fetch(form.action, {
         method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' }
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: `${values.get('first_name') || ''} ${values.get('last_name') || ''}`.trim(),
+          email: values.get('email'),
+          source: 'slipmeter.app'
+        })
       });
-      if (!response.ok) throw new Error('Form submission failed');
+      const payload = await response.json().catch(function () { return {}; });
+      if (!response.ok || !payload.downloadUrl) throw new Error(payload.error || 'Secure download preparation failed.');
+      secureLink.href = payload.downloadUrl;
+      ready.hidden = false;
       if (status) {
-        status.textContent = 'Registration complete. Your download is ready.';
+        status.textContent = payload.message || 'Registration complete. Your secure download is ready.';
         status.className = 'download-status status-success';
       }
-      if (ready) ready.hidden = false;
       form.reset();
       if (coupon) coupon.value = '';
     } catch (error) {
       if (status) {
-        status.textContent = 'Something went wrong. Please check your details and try again.';
+        status.textContent = error.message || 'Something went wrong. Please check your details and try again.';
         status.className = 'download-status status-error';
       }
     } finally {
@@ -196,23 +115,10 @@
       }
     }
   });
-})();
 
-(function () {
-  const checkoutComplete = new URLSearchParams(window.location.search).get('checkout') === 'success';
-  if (!checkoutComplete) return;
-
-  const ready = document.getElementById('download-ready');
-  const cardHeading = document.querySelector('.download-card-head span');
-  const couponField = document.querySelector('.coupon-field');
-  const emailEmbed = document.querySelector('.tinyemail-embed');
-  const fallbackForm = document.getElementById('download-form');
-  const existingUser = document.querySelector('.existing-user');
-
-  if (ready) ready.hidden = false;
-  if (couponField) couponField.hidden = true;
-  if (emailEmbed) emailEmbed.hidden = true;
-  if (fallbackForm) fallbackForm.hidden = true;
-  if (existingUser) existingUser.hidden = true;
-  if (cardHeading) cardHeading.textContent = 'Subscription confirmed. Your download is ready.';
+  if (new URLSearchParams(window.location.search).get('checkout') === 'success') {
+    const heading = document.querySelector('.download-card-head span');
+    if (heading) heading.textContent = 'Subscription confirmed. Register your email for a secure installer link.';
+    document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' });
+  }
 })();

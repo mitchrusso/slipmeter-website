@@ -1,6 +1,6 @@
 {
   "version": "0.1.97",
-  "downloadUrl": "https://slipmeter.app/downloads/SlipMeter-0.1.97-arm64.dmg",
-  "notes": "Current Apple-notarized SlipMeter release with standalone time capture, reporting, exports, comments, outcomes, and optional ClickCoach synchronization.",
+  "downloadUrl": "https://slipmeter.app/#download",
+  "notes": "Current Apple-notarized SlipMeter release. Register for a short-lived secure installer link.",
   "sha256": "0f5ee6c6f70fd99fb9fdbb7f1bb8a95fdcce8e807d6a6d2f46773064a9344b75"
 }

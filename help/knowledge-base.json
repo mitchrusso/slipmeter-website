@@ -1,0 +1,295 @@
+{
+  "version": "2026-11-20",
+  "product": "SlipMeter",
+  "notice": "Answers are based on the current SlipMeter product guide and early-access service status.",
+  "entries": [
+    {
+      "id": "product-fit",
+      "category": "Choosing SlipMeter",
+      "question": "Is SlipMeter right for the way I work?",
+      "answer": "SlipMeter is a strong fit if your work happens in short, easily forgotten blocks—client calls, preparation, research, follow-up, project work, or administration—and you want a lightweight timer that stays visible without taking over the screen. It is especially useful when a duration alone is not enough and you want the client, activity, comments, classification, and outcome preserved together. If you need a Windows app, a released mobile app, payroll, or a full invoicing system today, SlipMeter is not yet the complete answer by itself.",
+      "keywords": ["right for me", "good fit", "who is it for", "should i buy", "use case", "consultant", "coach", "professional", "freelancer", "business"],
+      "followUps": ["why-slipmeter", "purchase-includes", "trial-decision"]
+    },
+    {
+      "id": "why-slipmeter",
+      "category": "Choosing SlipMeter",
+      "question": "Why use SlipMeter instead of a basic timer?",
+      "answer": "A basic timer remembers minutes. SlipMeter preserves a usable work record: who the work was for, what kind of work happened, what was accomplished, whether it is billable, and what follow-up is needed. Its full, mini, and micro views are designed to stay close to the work, while reports, exports, Network, and MCP turn captured time into billing preparation, productivity review, and accountability.",
+      "keywords": ["why slipmeter", "basic timer", "different", "better", "benefit", "value", "alternative", "time tracker"],
+      "followUps": ["product-fit", "reporting", "mcp-overview"]
+    },
+    {
+      "id": "purchase-includes",
+      "category": "Choosing SlipMeter",
+      "question": "What do I get for $19.97 per month?",
+      "answer": "The subscription includes the full Mac timer, unlimited local clients and activities, editable slips, comments, classifications, outcomes, detailed reporting, CSV and PDF exports, product updates, email support, use on up to two computers for one named person, and the first year of SlipMeter Network. The subscription begins after a 30-day full-feature trial.",
+      "keywords": ["what is included", "what do i get", "19.97", "subscription includes", "features included", "monthly price", "two computers"],
+      "followUps": ["pricing", "network-pricing", "trial-decision"]
+    },
+    {
+      "id": "team-fit",
+      "category": "Choosing SlipMeter",
+      "question": "How would SlipMeter work for my team?",
+      "answer": "Each person uses a named SlipMeter license and records work independently. Today, teams can combine complete CSV exports for unified reporting. SlipMeter Network adds organization invitations, member and device identity, a shared repository, combined reporting, and read-only MCP access. The Network dashboard is live in early access; automatic synchronization from the installed Mac app is the next connector.",
+      "keywords": ["my team", "company", "organization", "employees", "coaches", "multiple licenses", "team plan", "manager"],
+      "followUps": ["team-consolidation", "network-overview", "network-pricing"]
+    },
+    {
+      "id": "trial-decision",
+      "category": "Choosing SlipMeter",
+      "question": "Can I try everything before deciding?",
+      "answer": "Yes. SlipMeter begins with a 30-day full-feature trial so you can test the timer, views, clients, activities, comments, outcomes, reports, and exports in your real workflow. A card is required at checkout. Cancel before the next monthly renewal if it is not the right fit.",
+      "keywords": ["try", "trial", "before buying", "demo", "test", "cancel trial", "risk free", "30 days"],
+      "followUps": ["purchase-includes", "pricing", "secure-download"]
+    },
+    {
+      "id": "not-included",
+      "category": "Choosing SlipMeter",
+      "question": "What does SlipMeter not include?",
+      "answer": "SlipMeter is not a payroll platform, general document-storage service, or complete invoicing system. The current app is for Apple silicon Macs; mobile is planned but not released, and Windows and Intel Mac installers are not currently offered. SlipMeter Network is optional, and automatic Mac-app synchronization is still the next early-access connector. You can still work locally and export CSV or PDF records without Network.",
+      "keywords": ["not included", "limitations", "does not do", "missing", "payroll", "invoicing", "windows", "mobile"],
+      "followUps": ["works-today", "platform", "product-fit"]
+    },
+    {
+      "id": "works-today",
+      "category": "Getting started",
+      "question": "What works today, and what is still in development?",
+      "answer": "SlipMeter for Apple silicon Mac currently supports local clients and activities, full, mini, and micro timer views, editable slips, comments, classifications, outcomes, reports, PDF output, and CSV exports. SlipMeter Network's secure repository, organization dashboard, member invitations, device controls, unified reports, and read-only MCP access are live in early access. Automatic synchronization from the installed Mac app is the next connector. Until it ships, local operation is unchanged and teams can consolidate detailed CSV exports manually.",
+      "keywords": ["available now", "works today", "early access", "roadmap", "coming soon", "development", "automatic synchronization", "current features"],
+      "followUps": ["standalone", "network-overview", "mcp-overview"]
+    },
+    {
+      "id": "standalone",
+      "category": "Getting started",
+      "question": "Can I use SlipMeter by itself?",
+      "answer": "Yes. SlipMeter is a standalone Mac application. You can create local clients and activities, capture and edit time, save slips, run reports, and export your records without ClickCoach or SlipMeter Network. Network is optional and is designed for cloud recovery, multi-device use, organization reporting, and MCP access.",
+      "keywords": ["standalone", "by itself", "without clickcoach", "without network", "local only", "independent"],
+      "followUps": ["local-storage", "network-overview", "pricing"]
+    },
+    {
+      "id": "platform",
+      "category": "Installation",
+      "question": "Which computers can run SlipMeter?",
+      "answer": "The current download is built for Apple silicon Macs. One named-user license may be used on up to two computers. A mobile version is planned but is not yet available, and the website does not currently offer a Windows or Intel Mac installer.",
+      "keywords": ["mac", "macos", "apple silicon", "intel", "windows", "computer", "device", "two computers", "mobile", "ios"],
+      "followUps": ["install-security", "pricing", "mobile"]
+    },
+    {
+      "id": "mobile",
+      "category": "Installation",
+      "question": "Is there a mobile or iPhone version?",
+      "answer": "Not yet. SlipMeter Mobile is planned, and mobile access is intended to be covered by the same named-user license when released. No release date is promised on the current website.",
+      "keywords": ["mobile", "iphone", "ios", "ipad", "android", "phone"],
+      "followUps": ["platform", "works-today"]
+    },
+    {
+      "id": "install-security",
+      "category": "Installation",
+      "question": "Is SlipMeter safe to install?",
+      "answer": "Yes. The current macOS installer is signed with an Apple Developer ID and notarized by Apple. Register on the download page to receive a time-limited secure installer link, then open the installer and move SlipMeter to Applications.",
+      "keywords": ["safe", "install", "installer", "apple certified", "notarized", "signed", "developer id", "download"],
+      "followUps": ["secure-download", "platform"]
+    },
+    {
+      "id": "secure-download",
+      "category": "Installation",
+      "question": "How do I download SlipMeter?",
+      "answer": "Enter your first name, last name, and email on the SlipMeter download form. After registration, the page provides a secure installer link that expires after 15 minutes. A delivery email is also sent so you can return to the download process.",
+      "keywords": ["download", "registration", "email", "secure link", "installer link", "link expired", "delivery"],
+      "followUps": ["coupon", "install-security", "support"]
+    },
+    {
+      "id": "timer-basics",
+      "category": "Timer",
+      "question": "How do I start and save a slip?",
+      "answer": "Choose a client and activity, add an optional comment, and start the timer. Pause and resume as needed. Stop sets the end time while leaving the slip editable; Save Slip stores the completed record. The saved slip can then be reported, exported, or synchronized when an eligible connection is available.",
+      "keywords": ["start timer", "save slip", "stop", "pause", "resume", "new slip", "record time"],
+      "followUps": ["slip-states", "edit-slip", "comments"]
+    },
+    {
+      "id": "slip-states",
+      "category": "Timer",
+      "question": "What do the different slip states mean?",
+      "answer": "Ready means no timer is active. Running means elapsed time is increasing. Paused preserves the elapsed time but stops the clock. Stopped means an end time is set and the slip remains editable. Saved locally means the record is stored on the Mac. Pending sync means the local record is waiting for a connection. Synced means the destination accepted it. Sync failed means the local copy is intact but the connection needs attention.",
+      "keywords": ["state", "status", "ready", "running", "paused", "stopped", "saved", "pending", "synced", "sync failed"],
+      "followUps": ["close-running", "offline", "edit-slip"]
+    },
+    {
+      "id": "close-running",
+      "category": "Timer",
+      "question": "What happens if I close SlipMeter while the timer is running?",
+      "answer": "SlipMeter warns you before closing. If you continue, it stops the active timer and saves the current slip at the elapsed time. A paused slip with captured time can also be saved. If no time has been captured, closing does not create a slip.",
+      "keywords": ["close", "quit", "exit", "running timer", "lose time", "shut down"],
+      "followUps": ["slip-states", "mini-micro", "edit-slip"]
+    },
+    {
+      "id": "change-client",
+      "category": "Timer",
+      "question": "What happens when I change clients?",
+      "answer": "If the current timer has captured time, SlipMeter asks before switching. Continue saves the current slip, resets the timer to zero, and assigns the next timer to the new client. Cancel keeps the current slip and timer unchanged.",
+      "keywords": ["change client", "switch client", "new client", "reset timer", "client timer"],
+      "followUps": ["timer-basics", "edit-slip"]
+    },
+    {
+      "id": "mini-micro",
+      "category": "Timer",
+      "question": "How do mini and micro views work?",
+      "answer": "Mini keeps client, activity, elapsed time, and controls in a compact floating window. Micro collapses further into a narrow timer bar. Drag the SlipMeter stripe to move mini and the timer strip to move micro. Use the plus control to return to the normal SlipMeter window.",
+      "keywords": ["mini", "micro", "small window", "move timer", "drag", "floating", "plus button", "expand"],
+      "followUps": ["timer-basics", "close-running"]
+    },
+    {
+      "id": "edit-slip",
+      "category": "Slips",
+      "question": "Can I edit a saved slip or correct the time?",
+      "answer": "Yes. Open Slips, choose Edit Slip, and update the time, client, activity, comments, billing classification, or outcomes in the Slip Drawer. Choose Update Slip when finished. This is useful when a timer ran too long, used the wrong client, or needs context before reporting.",
+      "keywords": ["edit", "correct time", "change time", "saved slip", "wrong client", "slip drawer", "update slip"],
+      "followUps": ["comments", "outcomes", "reporting"]
+    },
+    {
+      "id": "comments",
+      "category": "Slips",
+      "question": "Where do slip comments go?",
+      "answer": "Comments are stored with the individual slip. They remain available in detailed reports, complete-data exports, and supported synchronization. Comments help preserve what the work was for instead of leaving only a duration and activity name.",
+      "keywords": ["comment", "comments", "note", "notes", "description", "context"],
+      "followUps": ["outcomes", "reporting", "csv-export"]
+    },
+    {
+      "id": "outcomes",
+      "category": "Slips",
+      "question": "What are outcomes and follow-up fields?",
+      "answer": "Outcomes belong to the current slip only; they do not change every slip or the entire client record. They can capture what changed, the client's commitment, progress, energy, and whether follow-up is needed. These fields travel with complete slip exports and supported synchronization.",
+      "keywords": ["outcome", "outcomes", "follow up", "follow-up", "commitment", "progress", "energy"],
+      "followUps": ["comments", "reporting"]
+    },
+    {
+      "id": "reporting",
+      "category": "Reporting",
+      "question": "What reports can SlipMeter produce?",
+      "answer": "SlipMeter can summarize time by client and show detailed slips. Custom reporting can filter records by client, activity or classification, billing status, member, organization, and date. Reports can support productivity review, accountability, billing preparation, and workload analysis. Print or save PDF output when a fixed report is needed.",
+      "keywords": ["report", "reporting", "summary", "detailed slips", "filter", "client total", "productivity", "billing report", "pdf"],
+      "followUps": ["csv-export", "team-consolidation", "mcp-tools"]
+    },
+    {
+      "id": "csv-export",
+      "category": "Reporting",
+      "question": "Can I export my SlipMeter data?",
+      "answer": "Yes. SlipMeter supports CSV exports, complete slip-data exports, and print or PDF reporting. Complete exports include comments, classifications, outcomes, and other recorded slip details. CSV files can be opened in Excel, Google Sheets, a database, or another reporting system.",
+      "keywords": ["export", "csv", "excel", "google sheets", "pdf", "download data", "complete data"],
+      "followUps": ["team-consolidation", "reporting", "cancel-data"]
+    },
+    {
+      "id": "team-consolidation",
+      "category": "Teams",
+      "question": "How can several SlipMeter users combine their data?",
+      "answer": "Teams have two paths. Without Network, each person exports complete slip data as CSV and a manager combines the files in SlipMeter reporting, a spreadsheet, or another database. With SlipMeter Network, organizations can invite members, retain member and device identity, and report across the shared repository. Automatic Mac-app synchronization is still the next connector during early access.",
+      "keywords": ["team", "multiple users", "combine", "consolidate", "manager", "organization", "shared reports", "sneakernet"],
+      "followUps": ["network-overview", "csv-export", "network-pricing"]
+    },
+    {
+      "id": "network-overview",
+      "category": "Network",
+      "question": "How does SlipMeter Network work?",
+      "answer": "SlipMeter Network is an optional cloud service separate from ClickCoach. It provides a secure slip repository, organization dashboard, invitations, device controls, unified member reporting, and read-only MCP access. The repository and dashboard are live in early access. Automatic synchronization from the installed Mac app is the next connector, so local operation and manual CSV consolidation remain important today.",
+      "keywords": ["network", "cloud", "repository", "sync", "synchronize", "organization dashboard", "shared database"],
+      "followUps": ["works-today", "team-consolidation", "network-security"]
+    },
+    {
+      "id": "local-storage",
+      "category": "Privacy",
+      "question": "Where are my slips stored?",
+      "answer": "Standalone slips are stored locally on the Mac. Exporting creates files you control. SlipMeter Network stores synchronized records in its cloud repository only when Network is used and the record reaches that service. A timer still running on a computer remains local and is not available through MCP.",
+      "keywords": ["where stored", "storage", "local", "cloud", "data location", "private", "privacy"],
+      "followUps": ["network-security", "mcp-security", "cancel-data"]
+    },
+    {
+      "id": "offline",
+      "category": "Network",
+      "question": "Can SlipMeter work without an internet connection?",
+      "answer": "Yes. Time capture is local-first. An internet interruption does not prevent the timer from working or a local slip from being saved. A record waiting for a service connection remains pending and can retry when connectivity returns.",
+      "keywords": ["offline", "no internet", "connection", "internet interruption", "pending sync"],
+      "followUps": ["slip-states", "local-storage", "network-overview"]
+    },
+    {
+      "id": "network-pricing",
+      "category": "Pricing",
+      "question": "What does SlipMeter Network cost?",
+      "answer": "The first year of SlipMeter Network is included with every active SlipMeter license. The planned renewal is $9.97 per year per named-user license. One license covers up to two computers and is intended to include SlipMeter Mobile when released. Paid Network renewal is not enabled during early access; terms will be disclosed before billing begins.",
+      "keywords": ["network price", "network cost", "9.97", "first year free", "renewal", "cloud price"],
+      "followUps": ["pricing", "team-consolidation", "cancel-data"]
+    },
+    {
+      "id": "network-security",
+      "category": "Privacy",
+      "question": "How is Network access controlled?",
+      "answer": "Network organizations separate member records and administrative access. Device and member identity stay attached to synchronized slips. Administrators control invitations and MCP credentials. MCP credentials are organization-scoped, hashed, rate-limited, audited, and revocable. The website does not claim that Network is general file or attachment storage.",
+      "keywords": ["network security", "access control", "encryption", "organization", "administrator", "audit", "credential", "revoke"],
+      "followUps": ["mcp-security", "local-storage", "support"]
+    },
+    {
+      "id": "mcp-overview",
+      "category": "MCP",
+      "question": "What is the SlipMeter MCP server?",
+      "answer": "The MCP server is a read-only bridge between saved SlipMeter Network records and an MCP-compatible AI assistant. It lets the assistant answer reporting questions without modifying slips. An organization administrator creates a revocable credential in the Network dashboard and adds it to the assistant's secure MCP authorization settings.",
+      "keywords": ["mcp", "mcp server", "ai assistant", "artificial intelligence", "chatgpt", "claude", "codex", "connect ai"],
+      "followUps": ["mcp-tools", "mcp-security", "mcp-availability"]
+    },
+    {
+      "id": "mcp-tools",
+      "category": "MCP",
+      "question": "What can an AI assistant ask SlipMeter?",
+      "answer": "The current MCP tools can list filtered slips, summarize time, report by client, report by member, find incomplete slips, export filtered CSV data, and check Network status. Useful questions include: Which client work is ready to bill? Who recorded time this week? Which slips are missing notes or activities? How much time went to internal work this month?",
+      "keywords": ["mcp tools", "what can ai do", "ask slipmeter", "ai report", "summarize time", "incomplete slips", "report by client", "report by member"],
+      "followUps": ["mcp-overview", "mcp-security", "reporting"]
+    },
+    {
+      "id": "mcp-security",
+      "category": "MCP",
+      "question": "Can the AI change or see all of my data?",
+      "answer": "The MCP connection is read-only and limited to the organization associated with its credential. It cannot create, edit, or delete slips. A running timer remains local; MCP can access a record only after it has been saved and synchronized to Network. Administrators can revoke credentials, and MCP requests are rate-limited and audited.",
+      "keywords": ["ai privacy", "ai change data", "read only", "read-only", "delete slip", "edit slip", "mcp security", "see my data"],
+      "followUps": ["network-security", "local-storage", "mcp-overview"]
+    },
+    {
+      "id": "mcp-availability",
+      "category": "MCP",
+      "question": "Which AI assistants work with the MCP server?",
+      "answer": "SlipMeter uses the standard Streamable HTTP MCP protocol. It is intended for assistants and clients that can connect to a remote MCP server using a bearer credential. Compatibility and setup screens vary by assistant, so confirm that your chosen client supports remote Streamable HTTP MCP connections before configuring it.",
+      "keywords": ["compatible", "which ai", "chatgpt", "claude", "codex", "mcp client", "streamable http", "bearer"],
+      "followUps": ["mcp-overview", "mcp-security", "support"]
+    },
+    {
+      "id": "pricing",
+      "category": "Pricing",
+      "question": "How much does SlipMeter cost?",
+      "answer": "SlipMeter includes a 30-day full-feature trial and then costs $19.97 per month. The checkout requires a card, and you can cancel before the next monthly renewal. The first year of SlipMeter Network is included with an active license; its planned renewal is $9.97 per year per named-user license.",
+      "keywords": ["price", "pricing", "cost", "19.97", "trial", "30 day", "subscription", "monthly", "card"],
+      "followUps": ["network-pricing", "coupon", "cancel-data"]
+    },
+    {
+      "id": "coupon",
+      "category": "Pricing",
+      "question": "How do coupon codes work?",
+      "answer": "Enter the coupon code on the download form before submitting your registration. The page verifies the code and records its usage with the registration. If a valid code is not accepted or delivery does not arrive, contact SlipMeter support with the code and registration email.",
+      "keywords": ["coupon", "promo code", "promotion", "giveaway", "discount", "code not working"],
+      "followUps": ["secure-download", "support", "pricing"]
+    },
+    {
+      "id": "cancel-data",
+      "category": "Pricing",
+      "question": "What happens to my records if I cancel?",
+      "answer": "Before cancelling, export complete slip data and any reports you want to retain. Local exports remain under your control. Network service is not included after the underlying SlipMeter license ends. For current cloud-retention or deletion timing, contact support before cancellation so the answer reflects the active service policy.",
+      "keywords": ["cancel", "cancellation", "data retention", "delete data", "after subscription", "keep records", "export before cancel"],
+      "followUps": ["csv-export", "local-storage", "support"]
+    },
+    {
+      "id": "support",
+      "category": "Support",
+      "question": "How do I get help from a person?",
+      "answer": "Email support@clickcoach.io with the subject “SlipMeter support.” Include the SlipMeter version, Mac model, what you expected, what happened, and any screenshot that does not contain sensitive client information. The assistant does not collect or send your conversation.",
+      "keywords": ["support", "help", "person", "email", "contact", "bug", "problem", "not working"],
+      "followUps": ["works-today", "install-security"]
+    }
+  ]
+}

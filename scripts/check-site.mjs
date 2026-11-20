@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 
 const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+const vercel = fs.readFileSync(new URL('../vercel.json', import.meta.url), 'utf8');
+const helpKnowledge = JSON.parse(fs.readFileSync(new URL('../help/knowledge-base.json', import.meta.url), 'utf8'));
 const required = [
   '<title>SlipMeter for Mac',
   'https://slipmeter.app/',
@@ -19,6 +21,12 @@ const required = [
   'CSV handoff',
   'Even a simple sneakernet works',
   'manual CSV consolidation without Network',
+  'id="mcp"',
+  'SlipMeter MCP Server',
+  'Ask your time data a useful question',
+  'Secure MCP gateway',
+  'Credentials are hashed, rate-limited, organization-scoped, audited, and revocable',
+  'A timer still running on a computer remains private and local',
   'href="https://network.slipmeter.app/">Open SlipMeter Network',
   'id="network-map"',
   'Shared slip data',
@@ -29,7 +37,13 @@ const required = [
   'A ClickCoach subscription or any ClickCoach features',
   '$19.97 per month',
   'https://buy.stripe.com/6oUeVdgZ87XW57I1j74gg00',
-  '/downloads/SlipMeter-0.1.97-arm64.dmg'
+  'https://network.slipmeter.app/api/download/register',
+  'id="help-chat-launcher"',
+  'SlipMeter Product Advisor',
+  'Is SlipMeter right for me?',
+  'What is included for $19.97/month?',
+  'How would it work for my team?',
+  '/help-chat.js?v=1'
 ];
 
 for (const value of required) {
@@ -45,6 +59,19 @@ for (const oldPrice of ['$29.99', '$29.95', 'per year after trial', 'Standalone 
   if (html.includes(oldPrice)) throw new Error(`Standalone site still contains retired pricing: ${oldPrice}`);
 }
 
+for (const header of [
+  'Content-Security-Policy',
+  'Strict-Transport-Security',
+  'Cross-Origin-Opener-Policy',
+  'Cross-Origin-Resource-Policy',
+  'X-Content-Type-Options',
+  'X-Frame-Options',
+  'Referrer-Policy',
+  'Permissions-Policy'
+]) {
+  if (!vercel.includes(header)) throw new Error(`Missing required security header: ${header}`);
+}
+
 for (const path of [
   'assets/slipmeter-stopwatch-icon.svg',
   'assets/slipmeter-app-preview.png',
@@ -53,10 +80,36 @@ for (const path of [
   'assets/slipmeter-micro-view.png',
   'assets/slipmeter-mini-timer.svg',
   'assets/slipmeter-pause-timer.png',
-  'downloads/SlipMeter-0.1.97-arm64.dmg',
-  'downloads/latest.json'
+  'downloads/latest.json',
+  'help/knowledge-base.json',
+  'help-chat.js'
 ]) {
   if (!fs.existsSync(new URL(`../${path}`, import.meta.url))) throw new Error(`Missing required asset: ${path}`);
+}
+
+if (!Array.isArray(helpKnowledge.entries) || helpKnowledge.entries.length < 25) {
+  throw new Error('SlipMeter chatbot knowledge base must contain at least 25 help entries');
+}
+
+const helpIds = new Set();
+const helpCategories = new Set();
+for (const entry of helpKnowledge.entries) {
+  if (!entry.id || !entry.category || !entry.question || !entry.answer || !Array.isArray(entry.keywords)) {
+    throw new Error('SlipMeter chatbot knowledge entries require id, category, question, answer, and keywords');
+  }
+  if (helpIds.has(entry.id)) throw new Error(`Duplicate SlipMeter chatbot help id: ${entry.id}`);
+  helpIds.add(entry.id);
+  helpCategories.add(entry.category);
+}
+
+for (const category of ['Timer', 'Reporting', 'Network', 'MCP', 'Pricing', 'Privacy', 'Installation']) {
+  if (!helpCategories.has(category)) throw new Error(`SlipMeter chatbot is missing the ${category} help category`);
+}
+
+for (const retiredIntegration of ['app.tinyemail.com', 'formspree.io', "'unsafe-inline'", '/downloads/SlipMeter-0.1.97-arm64.dmg']) {
+  if (html.includes(retiredIntegration) || vercel.includes(retiredIntegration)) {
+    throw new Error(`Retired or insecure delivery integration remains: ${retiredIntegration}`);
+  }
 }
 
 console.log('SlipMeter standalone site checks passed.');

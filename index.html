@@ -32,7 +32,7 @@
         "operatingSystem": "macOS",
         "softwareVersion": "0.1.97",
         "url": "https://slipmeter.app/",
-        "downloadUrl": "https://slipmeter.app/downloads/SlipMeter-0.1.97-arm64.dmg",
+        "downloadUrl": "https://slipmeter.app/#download",
         "description": "A lightweight Mac timer for tracking clients, activities, comments, outcomes, and billable or non-billable work.",
         "publisher": {"@type": "Organization", "name": "Mindful Guidance MR, LLC"},
         "offers": {"@type": "Offer", "name": "Standalone monthly plan", "price": "19.97", "priceCurrency": "USD"}
@@ -66,6 +66,7 @@
         <a href="#workflow">How it works</a>
         <a href="#features">Features</a>
         <a href="#network">SlipMeter Network</a>
+        <a href="#mcp">MCP</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQs</a>
       </nav>
@@ -237,15 +238,19 @@
       <div class="shell network-layout">
         <div class="network-copy">
           <p class="eyebrow">SlipMeter Network · Early access</p>
-          <h2 id="network-title">Your slips, synchronized wherever work happens.</h2>
-          <p>SlipMeter Network is an optional SlipMeter cloud service—not a ClickCoach subscription. The secure repository, organization dashboard, member invitations, device controls, and unified reports are live in early access. Automatic synchronization from the installed Mac app is the next connector.</p>
+          <h2 id="network-title">Every timer feeds one trusted source of truth.</h2>
+          <p>Capture work independently, bring every completed slip into one secure repository, and turn the combined record into reporting, billing input, or an answer from your AI assistant.</p>
           <div class="network-paths">
-            <article><h3>Local first</h3><p>Every slip saves on the computer immediately. An internet interruption never prevents time capture.</p></article>
-            <article><h3>Cloud synchronized</h3><p>Completed slips queue automatically, retry when needed, and keep the member and device identity attached.</p></article>
-            <article><h3>CSV handoff</h3><p>Prefer a manual workflow? Each user can export detailed slips as a CSV file for a manager to combine in a spreadsheet or reporting tool. Even a simple sneakernet works.</p></article>
+            <article><span>01</span><h3>Capture locally</h3><p>Each person records work without interruption, even when offline.</p></article>
+            <article><span>02</span><h3>Unify the record</h3><p>Saved slips keep their member, device, client, activity, notes, and outcomes.</p></article>
+            <article class="network-path-mcp"><span>03</span><h3>Ask or export</h3><p>Use conventional reports, a CSV handoff, or the read-only MCP server to get the answer you need. Even a simple sneakernet works.</p></article>
           </div>
-          <a class="button button-primary" href="https://network.slipmeter.app/">Open SlipMeter Network</a>
+          <div class="network-actions">
+            <a class="button button-primary" href="https://network.slipmeter.app/">Open SlipMeter Network</a>
+            <a class="network-mcp-link" href="#mcp">Explore the MCP server <span aria-hidden="true">→</span></a>
+          </div>
         </div>
+        <div class="network-visual">
         <div class="network-map" id="network-map" role="img" aria-label="Six independent SlipMeter users at computers connected through a decentralized network to one shared slip database">
           <span class="network-link network-link-1" aria-hidden="true"></span>
           <span class="network-link network-link-2" aria-hidden="true"></span>
@@ -265,6 +270,12 @@
             <small>One report-ready repository</small>
           </div>
           <span class="network-status">Independent capture · Unified reporting</span>
+        </div>
+          <div class="network-mcp-preview" aria-label="Example answer prepared by the SlipMeter MCP server">
+            <div class="network-mcp-preview-head"><span class="network-mcp-pulse" aria-hidden="true"></span><strong>SlipMeter MCP</strong><small>Read-only</small></div>
+            <p>“Show unbilled client work from this month.”</p>
+            <div><span>Answer ready</span><strong>12 complete slips · 3 need review</strong></div>
+          </div>
         </div>
       </div>
       <div class="shell network-result" aria-label="Unified reporting benefits">
@@ -287,6 +298,7 @@
               <li>Mobile access when SlipMeter Mobile is released</li>
               <li>Device replacement and recovery from the cloud copy</li>
               <li>Organization invitations and combined member reporting</li>
+              <li>Read-only MCP access for AI-assisted reporting and CSV exports</li>
               <li>CSV and PDF reporting exports, including manual CSV consolidation without Network</li>
             </ul>
           </article>
@@ -301,6 +313,57 @@
               <li>Mobile access before the mobile app is released</li>
             </ul>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section mcp-section" id="mcp" aria-labelledby="mcp-title">
+      <div class="shell mcp-heading">
+        <p class="eyebrow">SlipMeter MCP Server</p>
+        <h2 id="mcp-title">Ask your time data a useful question. Get a report-ready answer.</h2>
+        <p>Connect an MCP-compatible AI assistant to the slips already saved in SlipMeter Network. Instead of rebuilding reports by hand, ask for the clients, members, activities, missing details, or billing records you need.</p>
+      </div>
+
+      <div class="shell mcp-flow" aria-label="Saved SlipMeter records pass through a secure read-only MCP connection to an AI assistant">
+        <article class="mcp-source">
+          <span class="mcp-step">01</span>
+          <small>SlipMeter Network</small>
+          <h3>Saved work records</h3>
+          <ul><li>Client and activity</li><li>Member and device</li><li>Time, notes, and outcomes</li></ul>
+        </article>
+        <div class="mcp-connector" aria-hidden="true"><span></span></div>
+        <article class="mcp-gateway">
+          <span class="mcp-step">02</span>
+          <div class="mcp-lock" aria-hidden="true"><i></i></div>
+          <small>Secure MCP gateway</small>
+          <h3>Read-only access</h3>
+          <p>One revocable credential. One organization. No ability to change a slip.</p>
+        </article>
+        <div class="mcp-connector" aria-hidden="true"><span></span></div>
+        <article class="mcp-answer">
+          <span class="mcp-step">03</span>
+          <small>Your AI assistant</small>
+          <div class="mcp-message mcp-question">Which client work is ready to bill this month?</div>
+          <div class="mcp-message mcp-response"><strong>Report prepared</strong><span>Billable time grouped by client, with incomplete records flagged for review.</span></div>
+        </article>
+      </div>
+
+      <div class="shell mcp-benefits" aria-label="Benefits of the SlipMeter MCP server">
+        <article><span>Faster answers</span><h3>Skip the report assembly</h3><p>Summarize time by client, member, activity, billing status, or day in a conversational workflow.</p></article>
+        <article><span>Cleaner billing</span><h3>Find what needs attention</h3><p>Identify slips missing a client, activity, note, or outcome before they slow down invoicing and review.</p></article>
+        <article><span>Flexible output</span><h3>Move data into the next tool</h3><p>List filtered slips or generate CSV output for spreadsheets, invoicing preparation, and deeper analysis.</p></article>
+        <article><span>Controlled access</span><h3>Keep each organization separate</h3><p>Credentials are hashed, rate-limited, organization-scoped, audited, and revocable by an administrator.</p></article>
+      </div>
+
+      <div class="shell mcp-capabilities">
+        <div>
+          <p class="eyebrow">What you can ask</p>
+          <div class="mcp-prompts"><span>Summarize this month</span><span>Report by client</span><span>Compare members</span><span>Find incomplete slips</span><span>Export filtered CSV</span><span>Check Network status</span></div>
+        </div>
+        <div class="mcp-boundary">
+          <strong>Saved records only</strong>
+          <p>A timer still running on a computer remains private and local. It becomes available to the MCP server only after the slip is saved and synchronized to SlipMeter Network.</p>
+          <a class="button button-primary" href="https://network.slipmeter.app/">Open SlipMeter Network</a>
         </div>
       </div>
     </section>
@@ -352,10 +415,7 @@
             <input id="slipmeter-coupon" type="text" name="coupon_code" autocomplete="off" placeholder="Enter your code" />
             <p class="coupon-status">Coupon usage is recorded when your registration is submitted.</p>
           </div>
-          <div class="tinyemail-embed tinyemail-embed-empty"><script src="https://app.tinyemail.com/static/js/TinyFormRenderer.js" data-ia1="e4ea2f69-5822-4136-a02b-d0045cabb18f" data-if2="4a38044d-1fc0-454c-8e1d-b146e3466812"></script></div>
-          <form id="download-form" class="download-form" action="https://formspree.io/f/mvzylaqk" method="POST">
-            <input type="hidden" name="_subject" value="SlipMeter download request" />
-            <input type="hidden" name="download" value="SlipMeter-0.1.97-arm64.dmg" />
+          <form id="download-form" class="download-form" action="https://network.slipmeter.app/api/download/register" method="POST">
             <input type="hidden" name="coupon_code" value="" />
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="honeypot" aria-hidden="true" />
             <div class="form-row">
@@ -368,10 +428,9 @@
           </form>
           <div class="download-ready" id="download-ready" hidden>
             <strong>Your download is ready.</strong>
-            <p>Open the installer, drag SlipMeter to Applications, and start your standalone trial.</p>
-            <a class="button button-primary button-full" href="/downloads/SlipMeter-0.1.97-arm64.dmg" download>Download SlipMeter 0.1.97</a>
+            <p>Your secure link expires in 15 minutes. Open the installer, then drag SlipMeter to Applications.</p>
+            <a class="button button-primary button-full" id="secure-download-link" href="#">Download SlipMeter 0.1.97</a>
           </div>
-          <p class="existing-user">Already registered? <a href="/downloads/SlipMeter-0.1.97-arm64.dmg" download>Download the latest installer</a>.</p>
           <p class="form-legal">By registering, you agree to receive essential SlipMeter delivery and product emails. You can unsubscribe from marketing messages at any time.</p>
         </aside>
       </div>
@@ -393,6 +452,7 @@
           <details><summary>Can I export my records?</summary><p>Yes. Export detailed records, including comments and classifications, for reporting, analysis, invoicing preparation, or consolidation.</p></details>
           <details><summary>Do we need SlipMeter Network to combine team data?</summary><p>No. Each person can export detailed slips as a CSV file. A manager can collect and combine those files in Excel, Google Sheets, a database, or another reporting tool. This manual “sneakernet” approach works even when the team does not use cloud synchronization.</p></details>
           <details><summary>How does SlipMeter Network work?</summary><p>SlipMeter Network is an optional cloud service that does not require ClickCoach. Its secure repository, organization dashboard, device controls, invitations, and unified reports are live in early access. Automatic synchronization from the installed Mac app is the next connector; until that update ships, existing local SlipMeter operation is unchanged.</p></details>
+          <details><summary>Can an AI assistant report on our SlipMeter data?</summary><p>Yes. Organization administrators can create a revocable, read-only MCP credential from the SlipMeter Network dashboard. Compatible assistants can summarize time, report by client or member, find incomplete slips, check Network status, and export filtered CSV data without modifying any records.</p></details>
           <details><summary>What will SlipMeter Network cost?</summary><p>The first year will be included with every active SlipMeter license. After that, Network will renew for $9.97 per year per license. One named-user license covers up to two computers, plus SlipMeter Mobile when it becomes available.</p></details>
           <details><summary>Is the app safe to install?</summary><p>Yes. The current macOS installer is signed with a Developer ID and notarized by Apple.</p></details>
         </div>
@@ -418,6 +478,39 @@
     <div class="shell footer-bottom"><span>&copy; 2026 Mindful Guidance MR, LLC. All rights reserved.</span><span><a href="https://clickcoach.io/privacy/">Privacy</a><a href="https://clickcoach.io/terms/">Terms</a></span></div>
   </footer>
 
+  <button class="help-chat-launcher" id="help-chat-launcher" type="button" aria-controls="help-chat-panel" aria-expanded="false">
+    <span class="help-chat-launcher-icon" aria-hidden="true">?</span>
+    <span><strong>Questions before you buy?</strong><small>Ask about SlipMeter</small></span>
+  </button>
+
+  <aside class="help-chat-panel" id="help-chat-panel" aria-labelledby="help-chat-title" role="dialog" hidden>
+    <header class="help-chat-header">
+      <img src="/assets/slipmeter-stopwatch-icon.svg" alt="" width="38" height="38" />
+      <div><strong id="help-chat-title">SlipMeter Product Advisor</strong><span><i aria-hidden="true"></i> Pre-sales guide</span></div>
+      <button id="help-chat-close" type="button" aria-label="Close SlipMeter Product Advisor">×</button>
+    </header>
+    <div class="help-chat-body" id="help-chat-body" aria-live="polite">
+      <div class="help-chat-message help-chat-message-bot">
+        <p>I can help you decide whether SlipMeter fits your work, your team, and the way you want to use captured time.</p>
+      </div>
+      <section class="help-chat-starters" id="help-chat-starters" aria-labelledby="help-chat-starters-title">
+        <strong id="help-chat-starters-title">Top questions</strong>
+        <button type="button" data-help-question="Is SlipMeter right for the way I work?">Is SlipMeter right for me?</button>
+        <button type="button" data-help-question="What do I get for $19.97 per month?">What is included for $19.97/month?</button>
+        <button type="button" data-help-question="How would SlipMeter work for my team?">How would it work for my team?</button>
+        <a class="help-chat-trial" href="https://buy.stripe.com/6oUeVdgZ87XW57I1j74gg00">Start the 30-day trial</a>
+      </section>
+      <div id="help-chat-conversation"></div>
+    </div>
+    <form class="help-chat-form" id="help-chat-form">
+      <label class="sr-only" for="help-chat-input">Ask a pre-sales question about SlipMeter</label>
+      <input id="help-chat-input" name="question" type="text" autocomplete="off" maxlength="240" placeholder="Ask about features, fit, or pricing…" required />
+      <button type="submit">Ask</button>
+    </form>
+    <p class="help-chat-privacy">Answers come from the SlipMeter product guide. Your questions stay in this browser.</p>
+  </aside>
+
   <script src="/site.js?v=1" defer></script>
+  <script src="/help-chat.js?v=1" defer></script>
 </body>
 </html>

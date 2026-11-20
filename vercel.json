@@ -4,11 +4,14 @@
     {
       "source": "/(.*)",
       "headers": [
-        {"key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://app.tinyemail.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://new.clickcoach.io https://formspree.io https://app.tinyemail.com; frame-src https://app.tinyemail.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self' https://formspree.io"},
+        {"key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'sha256-mb3PBIsIlgtmKAL5+0j5tEJZ+X6d2IBzbKMAJNhjrf0='; style-src 'self'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://new.clickcoach.io https://network.slipmeter.app; frame-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action https://network.slipmeter.app"},
         {"key": "X-Content-Type-Options", "value": "nosniff"},
         {"key": "X-Frame-Options", "value": "DENY"},
         {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"},
-        {"key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()"}
+        {"key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()"},
+        {"key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains"},
+        {"key": "Cross-Origin-Opener-Policy", "value": "same-origin"},
+        {"key": "Cross-Origin-Resource-Policy", "value": "same-site"}
       ]
     },
     {
