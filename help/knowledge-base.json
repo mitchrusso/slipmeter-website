@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-20",
+  "version": "2026-11-20.1",
   "product": "SlipMeter",
   "notice": "Answers are based on the current SlipMeter product guide and early-access service status.",
   "entries": [
@@ -34,6 +34,14 @@
       "answer": "Each person uses a named SlipMeter license and records work independently. Today, teams can combine complete CSV exports for unified reporting. SlipMeter Network adds organization invitations, member and device identity, a shared repository, combined reporting, and read-only MCP access. The Network dashboard is live in early access; automatic synchronization from the installed Mac app is the next connector.",
       "keywords": ["my team", "company", "organization", "employees", "coaches", "multiple licenses", "team plan", "manager"],
       "followUps": ["team-consolidation", "network-overview", "network-pricing"]
+    },
+    {
+      "id": "team-getting-started",
+      "category": "Choosing SlipMeter",
+      "question": "How does a team get started?",
+      "answer": "The first person registers a SlipMeter Network workspace and becomes the organization owner. The owner or an administrator invites each named user by name and email and can create or revoke the organization's read-only MCP credentials. Each invited member accepts the invitation, receives a named membership, and may activate up to two computers; members can revoke and replace their own devices. During early access, Network records each membership's included first-year entitlement. Team purchasing and renewal changes are not yet self-service controls in the Network dashboard, so SlipMeter support handles those commercial license changes.",
+      "keywords": ["team get started", "create organization", "organization owner", "invite users", "manage licenses", "license manager", "administrator", "admin", "mcp credentials", "team setup"],
+      "followUps": ["team-fit", "network-overview", "network-pricing"]
     },
     {
       "id": "trial-decision",
@@ -71,9 +79,17 @@
       "id": "platform",
       "category": "Installation",
       "question": "Which computers can run SlipMeter?",
-      "answer": "The current download is built for Apple silicon Macs. One named-user license may be used on up to two computers. A mobile version is planned but is not yet available, and the website does not currently offer a Windows or Intel Mac installer.",
+      "answer": "The current download requires macOS 13 Ventura or later and is built for Apple silicon Macs. One named-user license may be used on up to two computers. A mobile version is planned but is not yet available, and the website does not currently offer a Windows or Intel Mac installer.",
       "keywords": ["mac", "macos", "apple silicon", "intel", "windows", "computer", "device", "two computers", "mobile", "ios"],
-      "followUps": ["install-security", "pricing", "mobile"]
+      "followUps": ["install-security", "device-transfer", "mobile"]
+    },
+    {
+      "id": "device-transfer",
+      "category": "Installation",
+      "question": "How do I move my license to a replacement computer?",
+      "answer": "A named-user license permits up to two active Macs. In the SlipMeter Network dashboard, open Your license and revoke the old computer. Then add the replacement Mac, copy its one-time device token, and use that token to connect SlipMeter on the replacement. Revoking the old device prevents it from using the Network connection; it does not erase slips already retained in the organization repository.",
+      "keywords": ["replace computer", "replacement mac", "transfer license", "new computer", "revoke device", "old computer", "activate mac"],
+      "followUps": ["platform", "network-overview", "cancel-data"]
     },
     {
       "id": "mobile",
@@ -95,8 +111,8 @@
       "id": "secure-download",
       "category": "Installation",
       "question": "How do I download SlipMeter?",
-      "answer": "Enter your first name, last name, and email on the SlipMeter download form. After registration, the page provides a secure installer link that expires after 15 minutes. A delivery email is also sent so you can return to the download process.",
-      "keywords": ["download", "registration", "email", "secure link", "installer link", "link expired", "delivery"],
+      "answer": "SlipMeter is not distributed through the Mac App Store. Download it directly from the official SlipMeter website: enter your first name, last name, and email on the SlipMeter download form. After registration, the page provides a secure installer link that expires after 15 minutes. A delivery email is also sent so you can return to the download process.",
+      "keywords": ["download", "registration", "email", "secure link", "installer link", "link expired", "delivery", "mac app store", "app store", "where to get"],
       "followUps": ["coupon", "install-security", "support"]
     },
     {
@@ -196,12 +212,28 @@
       "followUps": ["works-today", "team-consolidation", "network-security"]
     },
     {
+      "id": "manager-approval",
+      "category": "Teams",
+      "question": "Can a manager review and approve team slips?",
+      "answer": "Not yet. SlipMeter Network currently combines member slips for reporting, but it does not provide a manager approval queue or approved, returned, and pending-review states. This workflow is planned as an optional organization feature so enabling it will not change how individual or existing team users save and report slips.",
+      "keywords": ["manager approval", "approve slips", "review slips", "approval queue", "pending review", "return slip", "supervisor"],
+      "followUps": ["team-consolidation", "network-overview", "reporting"]
+    },
+    {
       "id": "local-storage",
       "category": "Privacy",
-      "question": "Where are my slips stored?",
-      "answer": "Standalone slips are stored locally on the Mac. Exporting creates files you control. SlipMeter Network stores synchronized records in its cloud repository only when Network is used and the record reaches that service. A timer still running on a computer remains local and is not available through MCP.",
-      "keywords": ["where stored", "storage", "local", "cloud", "data location", "private", "privacy"],
-      "followUps": ["network-security", "mcp-security", "cancel-data"]
+      "question": "Where is my data stored?",
+      "answer": "Standalone slips stay on the Mac. When you use SlipMeter Network, its application and API run on Cloudflare Workers and synchronized slip records are stored in Cloudflare D1; the private Cloudflare R2 bucket is used for installer delivery, not slip records. Connections to network.slipmeter.app use HTTPS/TLS. Cloudflare documents automatic D1 encryption at rest using AES-256 GCM with Cloudflare-managed keys. Cloudflare manages the underlying physical infrastructure and primary database placement, and SlipMeter does not currently promise a particular country or data-residency region.",
+      "keywords": ["where stored", "where is my data", "storage", "local", "cloud", "data location", "servers located", "cloudflare", "d1", "r2", "encrypted", "encryption at rest", "encryption in transit", "tls", "private", "privacy"],
+      "followUps": ["data-residency", "network-security", "cancel-data"]
+    },
+    {
+      "id": "data-residency",
+      "category": "Privacy",
+      "question": "Can I choose the country where Network data is stored?",
+      "answer": "No. Geographic data residency means requiring cloud records to remain in a particular country or region, such as the United States or European Union. SlipMeter uses Cloudflare-managed infrastructure and does not currently offer a customer-selectable storage region or guarantee that records remain in one particular country. This is separate from encryption: Network connections use HTTPS/TLS and Cloudflare D1 encrypts stored data at rest.",
+      "keywords": ["data residency", "country", "region", "united states", "usa", "european union", "eu", "server location", "choose location"],
+      "followUps": ["local-storage", "network-security", "support"]
     },
     {
       "id": "offline",
@@ -263,9 +295,17 @@
       "id": "pricing",
       "category": "Pricing",
       "question": "How much does SlipMeter cost?",
-      "answer": "SlipMeter includes a 30-day full-feature trial and then costs $19.97 per month. The checkout requires a card, and you can cancel before the next monthly renewal. The first year of SlipMeter Network is included with an active license; its planned renewal is $9.97 per year per named-user license.",
+      "answer": "SlipMeter includes a 30-day full-feature trial and then costs $19.97 per month. The checkout requires a card, and you can cancel before the next monthly renewal. The first year of SlipMeter Network is included with an active license; its planned renewal is $9.97 per year per named-user license. A refund is available only during the first 30 days. After that period, payments are not refunded or prorated; cancelling prevents future renewal charges.",
       "keywords": ["price", "pricing", "cost", "19.97", "trial", "30 day", "subscription", "monthly", "card"],
-      "followUps": ["network-pricing", "coupon", "cancel-data"]
+      "followUps": ["refund-policy", "network-pricing", "cancel-data"]
+    },
+    {
+      "id": "refund-policy",
+      "category": "Pricing",
+      "question": "Can I get a refund if I cancel?",
+      "answer": "SlipMeter offers a money-back guarantee during the first 30 days. After 30 days, charges are not refundable or prorated. You may cancel at any time to prevent the next renewal, and your paid access continues through the end of the current billing period.",
+      "keywords": ["refund", "money back", "prorated", "proration", "cancel subscription", "30 day guarantee", "billing period"],
+      "followUps": ["pricing", "cancel-data", "support"]
     },
     {
       "id": "coupon",
@@ -279,9 +319,9 @@
       "id": "cancel-data",
       "category": "Pricing",
       "question": "What happens to my records if I cancel?",
-      "answer": "Before cancelling, export complete slip data and any reports you want to retain. Local exports remain under your control. Network service is not included after the underlying SlipMeter license ends. For current cloud-retention or deletion timing, contact support before cancellation so the answer reflects the active service policy.",
+      "answer": "Your locally stored slips and exports remain under your control. SlipMeter Network keeps the organization's cloud data available for 30 days after cancellation, after which it may be permanently deleted. Export complete slip data and any reports you want to retain before that 30-day period ends. Cancelling does not produce a refund or prorated refund after the initial 30-day money-back period.",
       "keywords": ["cancel", "cancellation", "data retention", "delete data", "after subscription", "keep records", "export before cancel"],
-      "followUps": ["csv-export", "local-storage", "support"]
+      "followUps": ["csv-export", "refund-policy", "local-storage"]
     },
     {
       "id": "support",

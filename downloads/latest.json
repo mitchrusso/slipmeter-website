@@ -1,6 +1,6 @@
 {
-  "version": "0.1.97",
+  "version": "0.1.100",
   "downloadUrl": "https://slipmeter.app/#download",
-  "notes": "Current Apple-notarized SlipMeter release. Register for a short-lived secure installer link.",
-  "sha256": "0f5ee6c6f70fd99fb9fdbb7f1bb8a95fdcce8e807d6a6d2f46773064a9344b75"
+  "notes": "Apple-notarized SlipMeter release with in-app AI help, feedback reporting, refined panel behavior, Network support, and update notifications.",
+  "sha256": "17a053e90476de41246ce70b63a9ebef983e38dc9973d45e5541cfdded34bb69"
 }

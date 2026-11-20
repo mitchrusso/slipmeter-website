@@ -7,6 +7,7 @@
   const body = document.getElementById('help-chat-body');
   const conversation = document.getElementById('help-chat-conversation');
   if (!launcher || !panel || !closeButton || !form || !input || !body || !conversation) return;
+  const appHelpMode = new URLSearchParams(window.location.search).get('assistant') === 'app';
 
   let entries = [];
   let entryById = new Map();
@@ -182,6 +183,31 @@
     }
   }
 
+  if (appHelpMode) {
+    const title = document.getElementById('help-chat-title');
+    const guideLabel = panel.querySelector('.help-chat-header span');
+    const welcome = panel.querySelector('.help-chat-message-bot p');
+    const trialLink = panel.querySelector('.help-chat-trial');
+    const formLabel = form.querySelector('label');
+    const starters = Array.from(panel.querySelectorAll('#help-chat-starters [data-help-question]'));
+    if (title) title.textContent = 'SlipMeter How-to Assistant';
+    if (guideLabel) guideLabel.innerHTML = '<i aria-hidden="true"></i> Product guide';
+    if (welcome) welcome.textContent = 'Ask how to use SlipMeter, understand a slip state, correct a record, export data, or connect your team.';
+    closeButton.setAttribute('aria-label', 'Close SlipMeter How-to Assistant');
+    if (trialLink) trialLink.hidden = true;
+    if (formLabel) formLabel.textContent = 'Ask a how-to question about SlipMeter';
+    input.setAttribute('placeholder', 'Ask how to use SlipMeter…');
+    [
+      ['How do I edit a saved slip?', 'How do I edit a saved slip?'],
+      ['What happens if I close while running?', 'What happens if I close while a timer is running?'],
+      ['How do I combine team data?', 'How can several SlipMeter users combine their data?']
+    ].forEach(function (starter, index) {
+      if (!starters[index]) return;
+      starters[index].dataset.helpQuestion = starter[1];
+      starters[index].textContent = starter[0];
+    });
+  }
+
   launcher.addEventListener('click', function () { setOpen(true); });
   closeButton.addEventListener('click', function () { setOpen(false); });
   form.addEventListener('submit', function (event) {
@@ -196,4 +222,5 @@
   document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape' && !panel.hidden) setOpen(false);
   });
+  if (appHelpMode) setOpen(true);
 })();

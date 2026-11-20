@@ -40,10 +40,10 @@ const required = [
   'https://network.slipmeter.app/api/download/register',
   'id="help-chat-launcher"',
   'SlipMeter Product Advisor',
-  'Is SlipMeter right for me?',
-  'What is included for $19.97/month?',
+  'Where is my data stored?',
+  'How does a team get started?',
   'How would it work for my team?',
-  '/help-chat.js?v=1'
+  '/help-chat.js?v=2'
 ];
 
 for (const value of required) {
