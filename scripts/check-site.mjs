@@ -82,9 +82,17 @@ for (const path of [
   'assets/slipmeter-pause-timer.png',
   'downloads/latest.json',
   'help/knowledge-base.json',
-  'help-chat.js'
+  'help-chat.js',
+  'privacy/index.html',
+  'terms/index.html'
 ]) {
   if (!fs.existsSync(new URL(`../${path}`, import.meta.url))) throw new Error(`Missing required asset: ${path}`);
+}
+
+for (const legalPath of ['/privacy', '/terms']) {
+  if (!html.includes(`href="${legalPath}"`)) {
+    throw new Error(`Footer must link to the standalone ${legalPath} page`);
+  }
 }
 
 if (!Array.isArray(helpKnowledge.entries) || helpKnowledge.entries.length < 25) {

@@ -1,0 +1,33 @@
+.appsumo-page { background: #fff; }
+.activation-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); gap: 36px 64px; max-width: 1040px; padding-block: 40px 64px; }
+.activation-heading { grid-column: 1 / -1; border-bottom: 1px solid var(--line); padding-bottom: 18px; }
+.activation-heading h1 { font-size: 30px; line-height: 1.25; }
+.activation-heading p { margin-bottom: 0; color: var(--muted); }
+.activation-layout h2 { font-size: 19px; }
+.activation-layout section, .activation-layout aside { min-width: 0; }
+.activation-layout aside { border-top: 4px solid #23946d; padding-top: 20px; }
+.activation-layout aside p { font-size: 14px; color: #455365; }
+.activation-layout fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
+.activation-layout textarea { width: 100%; resize: vertical; min-height: 120px; padding: 12px 14px; border: 1px solid #cbd7e7; border-radius: 8px; font: inherit; }
+.activation-layout :focus-visible { outline: 3px solid #255fe8; outline-offset: 3px; }
+.activation-layout .button { border-radius: 6px; min-height: 46px; padding: 12px 18px; line-height: 1.4; max-width: 100%; }
+.activation-layout button:disabled { opacity: .6; cursor: wait; }
+.activation-layout table { width: 100%; border-collapse: collapse; margin-bottom: 20px; text-align: left; font-size: 14px; }
+.activation-layout caption { text-align: left; color: #455365; padding-block: 4px 12px; }
+.activation-layout th, .activation-layout td { padding: 12px 6px; border-bottom: 1px solid var(--line); }
+.activation-layout th { background: #eaf7f0; }
+#activation-status { min-height: 24px; margin: 16px 0 8px; }
+#activation-status[data-tone="error"], #installer-status[data-tone="error"] { color: #a0233b; }
+#activation-status[data-tone="success"] { color: #146344; }
+#license-result { margin-top: 24px; padding-top: 20px; border-top: 3px solid #23946d; }
+#license-owner { overflow-wrap: anywhere; }
+.license-facts { display: grid; grid-template-columns: 1fr 1fr 1.5fr; gap: 12px; }
+.license-facts dt { font-size: 12px; color: #455365; }
+.license-facts dd { margin: 4px 0 0; font-size: 22px; font-weight: 750; }
+.activation-next { margin: 18px 0; padding: 14px 16px; border: 1px solid #b9d7ff; background: #f2f8ff; border-radius: 8px; }
+.activation-next p { margin: 5px 0 0; color: #334155; }
+@media (max-width: 700px) {
+  .activation-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; padding-top: 28px; }
+  .activation-heading h1 { font-size: 26px; }
+  .activation-layout .button { width: 100%; }
+}

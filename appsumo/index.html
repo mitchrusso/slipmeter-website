@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Redeem your SlipMeter AppSumo lifetime codes.">
+  <title>SlipMeter AppSumo Activation</title>
+  <link rel="canonical" href="https://slipmeter.app/appsumo/">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/appsumo/appsumo.css">
+  <script defer src="/appsumo/client.js"></script>
+  <script defer src="/appsumo/page.js"></script>
+</head>
+<body class="appsumo-page">
+  <a class="skip-link" href="#activation">Skip to activation</a>
+  <header class="site-nav"><div class="shell nav-inner">
+    <a class="brand" href="/"><img src="/assets/slipmeter-stopwatch-icon.svg" alt="" width="36" height="36"><span>SlipMeter</span></a>
+    <a href="mailto:support@clickcoach.io">Support</a>
+  </div></header>
+  <main id="activation" class="shell activation-layout">
+    <header class="activation-heading">
+      <h1>SlipMeter AppSumo Activation</h1>
+      <p>Create your SlipMeter Network account and activate lifetime access for every included seat.</p>
+    </header>
+    <section aria-labelledby="redeem-heading">
+      <h2 id="redeem-heading">Create your account and redeem</h2>
+      <form id="appsumo-form">
+        <fieldset id="activation-fields">
+          <div class="field"><label for="owner-name">Owner name</label><input id="owner-name" name="name" autocomplete="name" maxlength="120" required></div>
+          <div class="field"><label for="organization-name">Business or team name</label><input id="organization-name" name="organizationName" autocomplete="organization" maxlength="160" required></div>
+          <div class="field"><label for="owner-email">Owner email</label><input id="owner-email" name="email" type="email" autocomplete="email" maxlength="255" required></div>
+          <div class="field"><label for="owner-password">Create password <span>12 characters minimum</span></label><input id="owner-password" name="password" type="password" autocomplete="new-password" minlength="12" maxlength="256" required></div>
+          <div class="field"><label for="appsumo-codes">AppSumo codes (one per line or comma separated)</label><textarea id="appsumo-codes" name="codes" rows="4" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="1100" required></textarea></div>
+          <button class="button button-primary" type="submit">Create account and redeem codes</button>
+        </fieldset>
+      </form>
+      <p id="activation-status" role="status" aria-live="polite"></p>
+      <section id="license-result" hidden aria-labelledby="license-heading" tabindex="-1">
+        <h2 id="license-heading">Lifetime license reserved</h2>
+        <p id="license-owner"></p>
+        <dl class="license-facts">
+          <div><dt>Tier</dt><dd id="license-tier"></dd></div>
+          <div><dt>Seats</dt><dd id="license-seats"></dd></div>
+          <div><dt>Included Macs</dt><dd id="license-macs"></dd></div>
+        </dl>
+        <p>Lifetime Network is included for these seats.</p>
+        <div class="activation-next"><strong>Next step</strong><p>Open the verification email, confirm your address, then sign in to SlipMeter Network with the email and password you just created.</p></div>
+        <button id="prepare-download" class="button button-secondary" type="button">Prepare current Mac installer</button>
+        <p id="installer-status" role="status"></p>
+        <a id="installer-link" class="button button-primary" hidden>Download current DMG</a>
+        <p><a href="https://network.slipmeter.app/">Sign in to SlipMeter Network</a></p>
+      </section>
+      <noscript>JavaScript is required to verify your codes. No activation has been performed.</noscript>
+    </section>
+    <aside aria-labelledby="stack-heading">
+      <h2 id="stack-heading">Your lifetime plan</h2>
+      <table>
+        <caption>Code stacking: 1 / 3 / 6 / 10</caption>
+        <thead><tr><th scope="col">Codes</th><th scope="col">Seats</th><th scope="col">Macs</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>1</td><td>2</td></tr>
+          <tr><td>3</td><td>5</td><td>10</td></tr>
+          <tr><td>6</td><td>15</td><td>30</td></tr>
+          <tr><td>10</td><td>30</td><td>60</td></tr>
+        </tbody>
+      </table>
+      <p>Each seat is for one named user with two Macs. Stack codes under the same owner email. Your confirmed tier and available Macs come from the activation service.</p>
+      <p>Between stack levels, the last completed tier applies. Owner activation is limited to two Macs; other named users use Network invitations.</p>
+      <p>The AppSumo offer includes lifetime Network for included seats, with no annual Network renewal for those seats. A ClickCoach subscription is not included.</p>
+      <p>Already have a SlipMeter Network account? Enter that account's owner email and password. Your codes will be added to its existing workspace.</p>
+      <a href="/#download">SlipMeter downloads</a>
+    </aside>
+  </main>
+</body>
+</html>
