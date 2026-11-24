@@ -3,6 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
 const { parseCodes, redeemCodes, prepareDownload } = require('../appsumo/client.js');
+const proxy = require('../api/appsumo/redeem.js');
 const code = 'SMAS' + 'A'.repeat(32);
 const secondCode = 'SMAS' + 'B'.repeat(32);
 const entitlement = { source: 'appsumo', lifetime: true, tier: 6, namedUsers: 15, maxMacs: 30, ownerMacLimit: 2, email: 'owner@example.com', codeCount: 6 };
@@ -24,9 +25,52 @@ test('batch redemption is one atomic request, not ten rate-limited emails', asyn
     return response({ ok: true, verificationRequired: true, confirmationEmailSent: true, entitlement }, 201);
   }});
   assert.equal(calls.length, 1);
+  assert.equal(calls[0].url, '/api/appsumo/redeem');
   assert.deepEqual(JSON.parse(calls[0].body), { name: 'Owner', organizationName: 'Owner Company', email: 'owner@example.com', password: 'correct horse battery staple', codes: [code, secondCode] });
   assert.equal(calls[0].credentials, 'omit');
   assert.equal(result.license.tier, 6);
+});
+
+test('same-origin proxy forwards activation without exposing account details', async () => {
+  const originalFetch = global.fetch;
+  let forwarded;
+  global.fetch = async (url, options) => {
+    forwarded = { url, options };
+    return response({ ok: false, code: 'code_unavailable', error: 'Unavailable' }, 404);
+  };
+  const output = { headers: {}, statusCode: 0, payload: '' };
+  const res = {
+    setHeader(name, value) { output.headers[name.toLowerCase()] = value; },
+    status(value) { output.statusCode = value; return this; },
+    send(value) { output.payload = value; return this; },
+  };
+  try {
+    await proxy({ method: 'POST', headers: {}, body: { ...inputs, codes: [code] } }, res);
+  } finally {
+    global.fetch = originalFetch;
+  }
+  assert.equal(forwarded.url, 'https://network.slipmeter.app/api/appsumo/redeem');
+  assert.equal(forwarded.options.method, 'POST');
+  assert.equal(output.statusCode, 404);
+  assert.equal(output.headers['cache-control'], 'no-store');
+  assert.deepEqual(JSON.parse(output.payload), { ok: false, code: 'code_unavailable', error: 'Unavailable' });
+});
+
+test('same-origin proxy rejects unsupported methods and oversized requests', async () => {
+  const makeResponse = () => {
+    const output = { headers: {}, statusCode: 0, payload: '' };
+    return { output, response: {
+      setHeader(name, value) { output.headers[name.toLowerCase()] = value; },
+      status(value) { output.statusCode = value; return this; },
+      send(value) { output.payload = value; return this; },
+    } };
+  };
+  const method = makeResponse();
+  await proxy({ method: 'GET', headers: {} }, method.response);
+  assert.equal(method.output.statusCode, 405);
+  const large = makeResponse();
+  await proxy({ method: 'POST', headers: { 'content-length': String(17 * 1024) }, body: {} }, large.response);
+  assert.equal(large.output.statusCode, 413);
 });
 
 test('invalid identity never submits codes', async () => {

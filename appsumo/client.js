@@ -1,6 +1,6 @@
 (function (root) {
   'use strict';
-  const endpoint = 'https://network.slipmeter.app/api/appsumo/redeem';
+  const endpoint = '/api/appsumo/redeem';
 
   function parseCodes(value) {
     const codes = [...new Set(String(value || '').split(/[,\r\n]+/).map(code => code.trim().toUpperCase().replace(/[-\s]/g, '')).filter(Boolean))];
