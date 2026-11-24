@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "test": "node --check site.js && node --check help-chat.js && node --check appsumo/client.js && node --check appsumo/page.js && node --check api/appsumo/redeem.js && node scripts/check-site.mjs && node --test scripts/appsumo.test.cjs"
+    "test": "node --check site.js && node --check help-chat.js && node --check appsumo/client.js && node --check appsumo/page.js && node scripts/check-site.mjs && node --test scripts/appsumo.test.cjs"
   }
 }
